@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ searchedUser, setSearchedUser }) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
+    <nav className="navbar  navbar-expand-lg navbar-light bg-light">
+      <div className="container-fluid ">
         <NavLink
           className="navbar-brand"
           activeClassName="activeLink"
@@ -27,6 +27,8 @@ const Navbar = () => {
         <form className="d-flex">
           <input
             className="form-control me-2"
+            value={searchedUser}
+            onChange={(e) => setSearchedUser(e.target.value)}
             type="search"
             placeholder="Search"
             aria-label="Search"

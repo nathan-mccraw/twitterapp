@@ -5,13 +5,37 @@ import SearchResults from "./SearchResults";
 import Favorites from "./Favorites";
 
 const App = () => {
+  const [tweet, setTweet] = useState("");
+  const [getTweets, setGetTweets] = useState("");
+  const [searchedUser, setSearchedUser] = useState("");
+  let sentToAPI = null;
+
+  const handleSubmit = () => {
+    sentToAPI = searchedUser;
+  };
+
+  const dummyData = {};
+
   return (
     <div className="App">
-      <Navbar />
+      <Navbar
+        searchedUser={searchedUser}
+        setSearchedUser={setSearchedUser}
+        handleSubmit={handleSubmit}
+      />
+      <h1>{sentToAPI}</h1>
       <Switch>
         <Route exact path="/" render={() => <Home />} />
-        <Route exact path="/SearchResults" render={() => <SearchResults />} />
-        <Route exact path="/Favorites" render={() => <Favorites />} />
+        <Route
+          exact
+          path="/SearchResults"
+          render={() => <SearchResults tweet={tweet} />}
+        />
+        <Route
+          exact
+          path="/Favorites"
+          render={() => <Favorites setSearchedUser={setSearchedUser} />}
+        />
       </Switch>
     </div>
   );
