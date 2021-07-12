@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-const Navbar = ({ searchedUser, setSearchedUser }) => {
+const Navbar = ({ searchedUser, setSearchedUser, handleSubmit }) => {
   return (
     <nav className="navbar  navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid ">
@@ -24,7 +24,7 @@ const Navbar = ({ searchedUser, setSearchedUser }) => {
             </NavLink>
           </li>
         </ul>
-        <form className="d-flex">
+        <form className="d-flex" onSubmit={handleSubmit}>
           <input
             className="form-control me-2"
             value={searchedUser}

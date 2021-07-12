@@ -1,4 +1,5 @@
 import Navbar from "./Navbar";
+import { useState } from "react";
 import { Route, Switch } from "react-router";
 import Home from "./Home";
 import SearchResults from "./SearchResults";
@@ -8,10 +9,11 @@ const App = () => {
   const [tweet, setTweet] = useState("");
   const [getTweets, setGetTweets] = useState("");
   const [searchedUser, setSearchedUser] = useState("");
-  let sentToAPI = null;
+  const [sentToAPI, setSentToAPI] = useState("");
 
-  const handleSubmit = () => {
-    sentToAPI = searchedUser;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSentToAPI(searchedUser);
   };
 
   const dummyData = {};
