@@ -23,13 +23,13 @@ const Home = () => {
                 alt="Mocking Jay Logo mb-4"
               />
               <div className="container">
-                <div className="row justify-content-between">
-                  <div className="col-10">
+                <div className="row justify-content-start">
+                  <div className="col-9">
                     <h1 className="border-bottom pb-4 text-info">
                       MockingJay -- A Twitter Proxy
                     </h1>
                   </div>
-                  <div className="col-1 d-flex justify-content-end">
+                  <div className="col-3">
                     <div className="container">
                       <NavLink
                         className="nav-link active"
