@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router";
 import Home from "./Home";
 import SearchResults from "./SearchResults";
 import Favorites from "./Favorites";
+import Info from "./Info";
 
 const App = () => {
   const [tweet, setTweet] = useState("");
@@ -25,7 +26,12 @@ const App = () => {
         setSearchedUser={setSearchedUser}
         handleSubmit={handleSubmit}
       />
-      <h1>{sentToAPI}</h1>
+      <div
+        id="banner"
+        className="border-top border-bottom border-2 border-info"
+      >
+        {sentToAPI}
+      </div>
       <Switch>
         <Route exact path="/" render={() => <Home />} />
         <Route
@@ -38,6 +44,7 @@ const App = () => {
           path="/Favorites"
           render={() => <Favorites setSearchedUser={setSearchedUser} />}
         />
+        <Route exact path="/Info" render={() => <Info />} />
       </Switch>
     </div>
   );

@@ -1,4 +1,4 @@
 const SearchResults = () => {
-  return <div>SearchResults</div>;
+  return <div>Search Results -- Twiiter tweets</div>;
 };
 export default SearchResults;

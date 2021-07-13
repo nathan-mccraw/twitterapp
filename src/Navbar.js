@@ -2,72 +2,61 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = ({ searchedUser, setSearchedUser, handleSubmit }) => {
   return (
-    <nav className="navbar  navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid ">
-        <NavLink
-          className="navbar-brand"
-          activeClassName="activeLink"
-          exact
-          to="/"
-        >
-          MockingJay
-        </NavLink>
-        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-          <li className="nav-item">
-            <NavLink
-              className="nav-link active activeLink"
-              aria-current="page"
-              exact
-              to="/Favorites"
-            >
-              Favorites
-            </NavLink>
-          </li>
-        </ul>
+    <nav className="navbar justify-content-start navbar-light bg-light p-2 pb-3 border-bottom border-info bg-white">
+      <div className="d-flex navbar-nav rounded-pill border border-info me-4">
         <form className="d-flex" onSubmit={handleSubmit}>
           <input
-            className="form-control me-2"
+            className="form-control me-2 rounded-pill border-0"
             value={searchedUser}
             onChange={(e) => setSearchedUser(e.target.value)}
             type="search"
             placeholder="Search"
             aria-label="Search"
           />
-          <button className="btn btn-outline-success" type="submit">
-            Search
+          <button
+            className="btn btn-outline-info border-0 rounded-circle"
+            type="submit"
+          >
+            <i className="bi bi-search"></i>
           </button>
         </form>
-        {/* <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" href="#">
-                Random
-              </NavLink>
-            </li>
-          </ul>
-          <form className="d-flex">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
-        </div> */}
+      </div>
+      <div className="navbar-nav me-4">
+        <div className="navbar-item">
+          <NavLink
+            className="nav-link active"
+            aria-current="page"
+            activeClassName="activeLink"
+            exact
+            to="/"
+          >
+            MockingJay
+          </NavLink>
+        </div>
+      </div>
+      <div className="d-flex navbar-nav me-4">
+        <div className="navbar-item">
+          <NavLink
+            className="nav-link active activeLink"
+            aria-current="page"
+            exact
+            to="/Favorites"
+          >
+            Favorites
+          </NavLink>
+        </div>
+      </div>
+      <div className="navbar-nav" id="info">
+        <div className="navbar-item">
+          <NavLink
+            className="nav-link active activeLink"
+            aria-current="page"
+            exact
+            to="/Info"
+          >
+            Info <i className="bi bi-info-circle "></i>
+          </NavLink>
+        </div>
       </div>
     </nav>
   );
