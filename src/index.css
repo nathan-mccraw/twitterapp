@@ -19,3 +19,8 @@ code {
   background-position-y: 44%;
   height: 100px;
 }
+
+#infoLogo {
+  height: 100px;
+  width: auto;
+}

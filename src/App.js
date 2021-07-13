@@ -34,6 +34,8 @@ const App = () => {
       </div>
       <Switch>
         <Route exact path="/" render={() => <Home />} />
+        <Route exact path="/Home/HowToSearch" render={() => <Home />} />
+        <Route exact path="/Home/HowToFavorites" render={() => <Home />} />
         <Route
           exact
           path="/SearchResults"

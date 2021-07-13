@@ -1,49 +1,96 @@
-import searchPicture from "./pictures/SearchPicture.jpg";
-import homePicture from "./pictures/homePicture.jpg";
+import HowToSearch from "./HowToResults";
+import HowToFavorites from "./HowToFavorites";
+import AboutHome from "./AboutHome";
+import Logo from "./pictures/Mockingjay.png";
+import { Route, Switch } from "react-router";
+import { NavLink } from "react-router-dom";
 
 const Home = () => {
+  const styleIcon = {
+    fontSize: "2rem",
+  };
+
   return (
     <div className="container">
       <div className="col align-items-center justify-content-center mt-4">
-        <div className="row">
-          <div className="border border-info border-2 p-4 shadow-lg">
+        <div className="row d-flex justify-content-center">
+          <div className="col-10 border border-info border-2 p-4 shadow-lg">
             <div className="clearfix">
               <img
-                src={searchPicture}
-                class="col-md-4 float-md-end mb-3 ms-md-3"
-                alt="Depicted Search Input"
+                src={Logo}
+                className="col-md-4 float-md-start me-4 mt-n1 ms-md-3"
+                id="infoLogo"
+                alt="Mocking Jay Logo mb-4"
               />
-              <p>
-                The search feature is located in the top left of your web
-                browser. You can use this input field to enter any{" "}
-                <b>USER NAME</b> that you wish to search. The results will
-                appear in the main body of the web browser.
-              </p>
-              <p>
-                If you navigate away from the search results, for example to
-                your <i>favorites</i> page, you can return to the search results
-                by clicking the <i>Return to Search Results</i> option that will
-                always be located on the left side of the screen. If you do not
-                see the <i>Return to Search Results</i> option, then you have
-                not initiated a search or the search has been cleared and is no
-                longer available.
-              </p>
-              <p>
-                If you wish to return to these instructions, you may navigate to
-                the root home page or by selectiong <i>MockingJay</i> in the
-                navbar at the top of the screen.
-              </p>
-              <img
-                src={homePicture}
-                class="col-md-4 float-md-bottom mb-3 ms-md-3"
-                alt="Depicted Search Input"
+              <div className="container">
+                <div className="row justify-content-between">
+                  <div className="col-10">
+                    <h1 className="border-bottom pb-4 text-info">
+                      MockingJay -- A Twitter Proxy
+                    </h1>
+                  </div>
+                  <div className="col-1 d-flex justify-content-end">
+                    <div className="container">
+                      <NavLink
+                        className="nav-link active"
+                        aria-current="page"
+                        activeClassName="activeLink"
+                        exact
+                        to="/"
+                      >
+                        <div className="row text-center">
+                          <i
+                            className="bi bi-house-fill text-info"
+                            style={styleIcon}
+                          ></i>
+                        </div>
+                        <div className="row text-center">
+                          <h6>home</h6>
+                        </div>
+                      </NavLink>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <Switch>
+              <Route exact path="/" render={() => <AboutHome />} />
+              <Route
+                exact
+                path="/Home/HowToSearch"
+                render={() => <HowToSearch />}
               />
+              <Route
+                exact
+                path="/Home/HowToFavorites"
+                render={() => <HowToFavorites />}
+              />
+            </Switch>
+          </div>
+          <div className="row justify-content-center text-center mt-3">
+            <div className="col h2">
+              <NavLink
+                className="nav-link active"
+                aria-current="page"
+                activeClassName="activeLink"
+                exact
+                to="/Home/HowToSearch"
+              >
+                How To Use 'Search'
+              </NavLink>
+            </div>
+            <div className="col h2">
+              <NavLink
+                className="nav-link active"
+                aria-current="page"
+                activeClassName="activeLink"
+                exact
+                to="/Home/HowToFavorites"
+              >
+                How To Use 'Favorites'
+              </NavLink>
             </div>
           </div>
-        </div>
-        <div className="row justify-content-center text-center mt-3">
-          <div className="col h2">How To Use 'Search'</div>
-          <div className="col h2">How To Use 'Favorites'</div>
         </div>
       </div>
     </div>
