@@ -1,4 +1,4 @@
-import HowToSearch from "./HowToResults";
+import HowToSearch from "./HowToSearch";
 import HowToFavorites from "./HowToFavorites";
 import AboutHome from "./AboutHome";
 import Logo from "./pictures/Mockingjay.png";

@@ -1,7 +1,7 @@
 const HowToFavorites = () => {
   return (
     <div className="clearfix">
-      <h3 className="text-center mb-3">How To Use 'Favorites'</h3>
+      {/* <h3 className="text-center mb-3">How To Use 'Favorites'</h3> */}
       <p>
         The favorites feature is located in the top left of your web browser.
         You can navigate to this screen and it will by default display five
