@@ -4,7 +4,6 @@ import homePicture from "./pictures/homePicture.jpg";
 const HowToSearch = () => {
   return (
     <div className="clearfix">
-      {/* <h3 className="text-center mb-3">How To Use 'Search'</h3> */}
       <img
         src={searchPicture}
         className="col-md-4 float-md-end mb-3 ms-md-3"

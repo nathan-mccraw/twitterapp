@@ -2,7 +2,7 @@ import Users from "./Users";
 import Favorites from "./Favorites";
 
 const SearchResults = ({
-  searchReturn,
+  userReturned,
   addFavorite,
   removeFavorite,
   favoriteUsers,
@@ -14,7 +14,9 @@ const SearchResults = ({
           favoriteUsers={favoriteUsers}
           removeFavorite={removeFavorite}
         />
-        <Users searchReturn={searchReturn} addFavorite={addFavorite} />
+        {userReturned && (
+          <Users userReturned={userReturned} addFavorite={addFavorite} />
+        )}
       </div>
     </div>
   );

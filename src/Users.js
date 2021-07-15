@@ -1,18 +1,18 @@
-const Users = ({ searchReturn, addFavorite }) => {
+const Users = ({ userReturned, addFavorite }) => {
   const styleIcon = {
-    fontSize: "2rem",
+    fontSize: "1.5rem",
   };
   return (
     <div className="col">
-      <div className="row ps-2 h1">Users:</div>
+      <div className="row ps-2 h4">Users:</div>
       <div className="row">
-        <div className="col-auto offset-2 border border-info border-2 p-4 shadow-lg h1 text-info">
+        <div className="col-auto offset-1 border border-info border-2 p-2 shadow-lg h3 text-info">
           <img
-            src={searchReturn.data.profile_image_url}
+            src={userReturned.data.profile_image_url}
             className="me-3"
             alt="Profile"
           />
-          @{searchReturn.data.username}
+          @{userReturned.data.username}
           <button
             onClick={addFavorite}
             className="ms-3 border-0 bg-body float-md-end"
