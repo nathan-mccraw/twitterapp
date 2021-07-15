@@ -3,8 +3,11 @@ import { NavLink } from "react-router-dom";
 const Navbar = ({ searchedUser, setSearchedUser, handleSubmit }) => {
   return (
     <nav className="navbar justify-content-start navbar-light bg-light p-2 pb-3 border-bottom border-info bg-white">
-      <div className="d-flex navbar-nav rounded-pill border border-info me-4">
-        <form className="d-flex" onSubmit={handleSubmit}>
+      <div className="col-auto d-flex navbar-nav">
+        <form
+          className="d-flex rounded-pill border border-info me-4"
+          onSubmit={handleSubmit}
+        >
           <input
             className="form-control me-2 rounded-pill border-0"
             value={searchedUser}
@@ -40,9 +43,9 @@ const Navbar = ({ searchedUser, setSearchedUser, handleSubmit }) => {
             className="nav-link active activeLink"
             aria-current="page"
             exact
-            to="/Favorites"
+            to="/SearchResults"
           >
-            Favorites
+            Search Results
           </NavLink>
         </div>
       </div>
