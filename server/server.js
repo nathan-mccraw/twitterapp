@@ -2,7 +2,7 @@ const { default: axios } = require("axios");
 const express = require("express");
 const app = express();
 const path = require("path");
-const port = 5000;
+const port = 3000;
 const token =
   "AAAAAAAAAAAAAAAAAAAAAChVRgEAAAAAyXZ3VakgE7I5ycTefsVpoyGFug0%3DGfgQoVK9GyXe84B8CegSA0sCQ7XNTK6WlCfVsYiChiLYC3Tpc0";
 
@@ -19,9 +19,6 @@ app.get("/api/defaultFavoriteUsers", (req, res) => {
 
 app.get("/api/getUser/:username", (req, res) => {
   const user = req.params.username;
-  console.log(
-    `https://api.twitter.com/2/users/by/username/${user}?user.fields=profile_image_url`
-  );
   axios
     .get(
       `https://api.twitter.com/2/users/by/username/${user}?user.fields=profile_image_url`,
@@ -32,9 +29,17 @@ app.get("/api/getUser/:username", (req, res) => {
     });
 });
 
-// app.get("/api/getTweets", (req, res) => {
-//   res.send();
-// });
+app.get("/api/getUserTweets/:userID", (req, res) => {
+  const id = req.params.userID;
+  console.log(`https://api.twitter.com/2/users/${id}/tweets?max_results=5`);
+  axios
+    .get(`https://api.twitter.com/2/users/${id}/tweets?max_results=5`, {
+      headers: { authorization: `Bearer ${token}` },
+    })
+    .then((response) => {
+      res.send(response.data);
+    });
+});
 
 app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, "..", "build", "index.html"));

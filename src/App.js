@@ -7,7 +7,8 @@ import axios from "axios";
 
 const App = () => {
   const [searchedText, setSearchedText] = useState("");
-  const [userReturned, setUserReturned] = useState("");
+  const [userReturned, setUserReturned] = useState(null);
+  const [tweetsReturned, setTweetsReturned] = useState(null);
   const [favoriteUsers, setFavoriteUsers] = useState([]);
 
   useEffect(() => {
@@ -18,34 +19,43 @@ const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.get(`/api/getUser/${searchedText}`).then((response) => {
-      setUserReturned(response.data);
+    axios
+      .get(`/api/getUser/${searchedText}`)
+      .then((response) => {
+        setUserReturned(response.data);
+      })
+      .catch(() => {
+        setUserReturned(null);
+      });
+
+    axios.get(`/api/getTweets/${searchedText}`).then((response) => {
+      setTweetsReturned(response.data);
+      console.log(response.data);
     });
   };
+
+  const getUserTweets = (user) => {
+    console.log(`/api/getUserTweets/${user.id}`);
+    axios.get(`/api/getUserTweets/${user.id}`).then(({ data }) => {
+      const tweets = data.data;
+      const tweetsData = tweets.map((tweet) => {
+        tweet.username = user.username;
+        tweet.profile_image_url = user.profile_image_url;
+        console.log(tweet);
+        return tweet;
+      });
+      console.log(tweetsData);
+      setTweetsReturned(tweetsData);
+    });
+  };
+
+  console.log(tweetsReturned);
 
   const removeFavorite = (deleteUser) => {
     const newFavoriteUsers = favoriteUsers.filter(
       (user) => user.username !== deleteUser
     );
     setFavoriteUsers(newFavoriteUsers);
-  };
-
-  //Axios request using "searchedUser" as a value: `https://api.twitter.com/2/users/by/username/:${searchedText}?user.fields=profile_image_url`
-  //pass return object to SearchResults
-
-  let searchReturn = {
-    data: {
-      // name: "Nathan McCraw",
-      // profile_image_url:
-      //   "https://pbs.twimg.com/profile_images/1414355333313667076/COFk-GPQ_normal.jpg",
-      // id: "887162430",
-      // username: "NateRLTW175",
-      username: "elonmusk",
-      name: "Elon Musk",
-      profile_image_url:
-        "https://pbs.twimg.com/profile_images/1404334078388670466/DgO3WL4S_normal.jpg",
-      id: "44196397",
-    },
   };
 
   const addFavorite = () => {
@@ -76,9 +86,11 @@ const App = () => {
           render={() => (
             <SearchResults
               userReturned={userReturned}
+              tweetsReturned={tweetsReturned}
               addFavorite={addFavorite}
               removeFavorite={removeFavorite}
               favoriteUsers={favoriteUsers}
+              getUserTweets={getUserTweets}
             />
           )}
         />

@@ -1,4 +1,4 @@
-const Favorites = ({ favoriteUsers, removeFavorite }) => {
+const Favorites = ({ favoriteUsers, removeFavorite, getUserTweets }) => {
   const styleIcon = {
     fontSize: "1rem",
   };
@@ -10,7 +10,12 @@ const Favorites = ({ favoriteUsers, removeFavorite }) => {
       <ul>
         {favoriteUsers.map((user) => (
           <li key={user.username} className="col-auto d-flex mt-2">
-            @{user.username}
+            <button
+              onClick={() => getUserTweets(user)}
+              className="border bg-body"
+            >
+              @{user.username}
+            </button>
             <button
               onClick={() => removeFavorite(user.username)}
               className="ms-4 border-0 bg-body float-md-end"
