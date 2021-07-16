@@ -25,19 +25,41 @@ app.get("/api/getUser/:username", (req, res) => {
       { headers: { authorization: `Bearer ${token}` } }
     )
     .then((response) => {
-      res.send(response.data);
+      response.status !== 404
+        ? res.send(response.data)
+        : res.send(reponse.status);
     });
 });
 
 app.get("/api/getUserTweets/:userID", (req, res) => {
   const id = req.params.userID;
-  console.log(`https://api.twitter.com/2/users/${id}/tweets?max_results=5`);
   axios
     .get(`https://api.twitter.com/2/users/${id}/tweets?max_results=5`, {
       headers: { authorization: `Bearer ${token}` },
     })
     .then((response) => {
-      res.send(response.data);
+      response.status !== 404
+        ? res.send(response.data)
+        : res.send(reponse.status);
+    });
+});
+
+app.get("/api/getTweets/:searchedText", (req, res) => {
+  const searchedText = req.params.searchedText;
+  console.log(searchedText);
+  axios
+    .get(
+      `https://api.twitter.com/2/tweets/search/recent?query=${searchedText}`,
+      {
+        headers: { authorization: `Bearer ${token}` },
+      }
+    )
+    .then((response) => {
+      const numberOfTweets = response.data.meta.result_count;
+      console.log(response);
+      numberOfTweets !== 0
+        ? res.send(response.data)
+        : res.send({ status: 404 });
     });
 });
 

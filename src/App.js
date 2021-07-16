@@ -19,37 +19,31 @@ const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .get(`/api/getUser/${searchedText}`)
-      .then((response) => {
-        setUserReturned(response.data);
-      })
-      .catch(() => {
-        setUserReturned(null);
-      });
+    axios.get(`/api/getUser/${searchedText}`).then((response) => {
+      response.status !== 404
+        ? setUserReturned(response.data)
+        : setUserReturned(null);
+    });
 
     axios.get(`/api/getTweets/${searchedText}`).then((response) => {
-      setTweetsReturned(response.data);
-      console.log(response.data);
+      response.data.status === 404
+        ? setTweetsReturned(null)
+        : setTweetsReturned(response.data.data);
     });
   };
 
   const getUserTweets = (user) => {
-    console.log(`/api/getUserTweets/${user.id}`);
     axios.get(`/api/getUserTweets/${user.id}`).then(({ data }) => {
       const tweets = data.data;
       const tweetsData = tweets.map((tweet) => {
         tweet.username = user.username;
         tweet.profile_image_url = user.profile_image_url;
-        console.log(tweet);
         return tweet;
       });
-      console.log(tweetsData);
       setTweetsReturned(tweetsData);
+      console.log(tweetsData);
     });
   };
-
-  console.log(tweetsReturned);
 
   const removeFavorite = (deleteUser) => {
     const newFavoriteUsers = favoriteUsers.filter(

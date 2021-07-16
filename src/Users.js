@@ -2,6 +2,9 @@ const Users = ({ userReturned, addFavorite }) => {
   const styleIcon = {
     fontSize: "1.5rem",
   };
+
+  if (userReturned === null) return null;
+
   return (
     <div className="col">
       <div className="row ps-2 h4">Users:</div>

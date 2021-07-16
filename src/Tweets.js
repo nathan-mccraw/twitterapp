@@ -1,4 +1,7 @@
 const Tweets = ({ tweetsReturned }) => {
+  if (tweetsReturned === null) {
+    return null;
+  }
   return (
     <div className="col-auto">
       <ul>
