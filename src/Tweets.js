@@ -6,19 +6,24 @@ const Tweets = ({ tweetsReturned }) => {
     <div className="col-auto">
       <ul>
         {tweetsReturned.map((tweet) => (
-          <li key={tweet.id}>
+          <li
+            key={tweet.id}
+            className="border border-2 border-info mb-0 p-3 pb-0"
+          >
             <div className="row">
-              <div className="col">
+              <div className="col-auto">
                 <img
                   src={tweet.profile_image_url}
-                  className="me-3"
+                  className="border border-primary p-1  mb-3 rounded-circle shadow"
                   alt="Profile"
                 />
               </div>
-              <div className="col">@{tweet.username}</div>
+              <div className="col-auto h3 text-info ps-0">
+                @{tweet.username}
+              </div>
             </div>
             <div className="row">{tweet.text}</div>
-            <div className="row">{tweet.created_at}</div>
+            <div className="row mt-3">{tweet.created_at}</div>
           </li>
         ))}
       </ul>

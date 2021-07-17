@@ -49,16 +49,23 @@ app.get("/api/getTweets/:searchedText", (req, res) => {
   console.log(searchedText);
   axios
     .get(
-      `https://api.twitter.com/2/tweets/search/recent?query=${searchedText}`,
+      `https://api.twitter.com/2/tweets/search/recent?query=${searchedText}&tweet.fields=author_id,created_at&expansions=author_id&user.fields=description,id,location,name,profile_image_url,username`,
       {
         headers: { authorization: `Bearer ${token}` },
       }
     )
     .then((response) => {
       const numberOfTweets = response.data.meta.result_count;
-      console.log(response);
+      const usersArray = response.data.includes.users;
+      const tweetsArray = response.data.data;
+      let tweetsWithUsers = [];
+
+      for (let i = 0; i < tweetsArray.length; i++) {
+        tweetsWithUsers[i] = { ...usersArray[i], ...tweetsArray[i] };
+      }
+
       numberOfTweets !== 0
-        ? res.send(response.data)
+        ? res.send(tweetsWithUsers)
         : res.send({ status: 404 });
     });
 });
