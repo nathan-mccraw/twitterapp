@@ -41,9 +41,7 @@ const Users = ({ userReturned, addFavorite, getUserTweets }) => {
                       style={styleIcon}
                     ></i>
                   </div>
-                  <div className="row text-center">
-                    <h6>Add Fav</h6>
-                  </div>
+                  <div className="row h6 text-center">Add Fav</div>
                 </button>
               </div>
             </div>

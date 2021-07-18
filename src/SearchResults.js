@@ -21,7 +21,7 @@ const SearchResults = ({
             showUserAndTweets={showUserAndTweets}
           />
         </div>
-        <div className="col ps-4">
+        <div className="col-6 offset-2 ps-4">
           {userReturned && (
             <Users
               favoriteUsers={favoriteUsers}

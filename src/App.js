@@ -195,6 +195,7 @@ const App = () => {
   };
 
   const getUserTweets = (userID) => {
+    console.log(userID);
     axios.get(`/api/getUserTweets/${userID}`).then((response) => {
       response.data.status === 404
         ? setTweetsReturned([])

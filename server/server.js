@@ -13,10 +13,6 @@ app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
 
-app.get("/api/defaultFavoriteUsers", (req, res) => {
-  res.send(favoriteUsers);
-});
-
 app.get("/api/getUser/:username", (req, res) => {
   const user = req.params.username;
   axios
@@ -54,6 +50,8 @@ app.get("/api/getUserTweets/:userID", (req, res) => {
         let tweetsWithUserInfo = [];
 
         for (let i = 0; i < tweetsArray.length; i++) {
+          tweetsArray[i].created_at = tweetsArray[i].created_at.split("T");
+          console.log(tweetsArray[i]);
           tweetsWithUserInfo[i] = { ...usersArray[0], ...tweetsArray[i] };
         }
 
@@ -95,30 +93,23 @@ app.get("/api/getTweets/:searchedText", (req, res) => {
     });
 });
 
+app.get("/api/defaultFavoriteUsers", (req, res) => {
+  axios
+    .get(
+      "https://api.twitter.com/2/users/by?usernames=elonmusk,tonystark,ufc&user.fields=location,profile_image_url,public_metrics",
+      {
+        headers: { authorization: `Bearer ${token}` },
+      }
+    )
+    .then((response) => {
+      const favorites = response.data.data;
+      for (let i = 0; i < favorites.length; i++)
+        favorites[i].author_id = favorites[i].id;
+      console.log();
+      res.send(response.data.data);
+    });
+});
+
 app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, "..", "build", "index.html"));
 });
-
-const favoriteUsers = [
-  {
-    username: "elonmusk",
-    name: "Elon Musk",
-    profile_image_url:
-      "https://pbs.twimg.com/profile_images/1404334078388670466/DgO3WL4S_normal.jpg",
-    author_id: "44196397",
-  },
-  {
-    profile_image_url:
-      "https://pbs.twimg.com/profile_images/1314309247908356103/W6qDiKYV_normal.jpg",
-    author_id: "803880",
-    name: "Tony Stark (Fan account)",
-    username: "tonystark",
-  },
-  {
-    username: "ufc",
-    profile_image_url:
-      "https://pbs.twimg.com/profile_images/1080527775256080389/_y_vhu2u_normal.jpg",
-    author_id: "6446742",
-    name: "UFC",
-  },
-];
