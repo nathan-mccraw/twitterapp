@@ -24,3 +24,8 @@ code {
   height: 100px;
   width: auto;
 }
+
+.getTweets:hover {
+  cursor: pointer;
+  color: gray;
+}

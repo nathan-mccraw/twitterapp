@@ -21,7 +21,7 @@ app.get("/api/getUser/:username", (req, res) => {
   const user = req.params.username;
   axios
     .get(
-      `https://api.twitter.com/2/users/by/username/${user}?user.fields=profile_image_url`,
+      `https://api.twitter.com/2/users/by/username/${user}?user.fields=location,profile_image_url,public_metrics`,
       { headers: { authorization: `Bearer ${token}` } }
     )
     .then((response) => {

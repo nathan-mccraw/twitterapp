@@ -14,14 +14,14 @@ const SearchResults = ({
   return (
     <div className="container mt-4 ms-4">
       <div className="row">
-        <div className="col-auto">
+        <div className="col-auto border-end">
           <Favorites
             favoriteUsers={favoriteUsers}
             removeFavorite={removeFavorite}
             showUserAndTweets={showUserAndTweets}
           />
         </div>
-        <div className="col">
+        <div className="col ps-4">
           {userReturned && (
             <Users
               favoriteUsers={favoriteUsers}

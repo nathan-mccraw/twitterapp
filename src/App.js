@@ -150,33 +150,26 @@ const App = () => {
 
   const testFavorites = [
     {
-      username: "elonmusk",
-      name: "Elon Musk",
+      id: "34743251",
+      name: "SpaceX",
+      location: "Hawthorne, CA",
+      public_metrics: {
+        followers_count: 17489301,
+        following_count: 100,
+        tweet_count: 5353,
+        listed_count: 31951,
+      },
+      username: "SpaceX",
       profile_image_url:
-        "https://pbs.twimg.com/profile_images/1404334078388670466/DgO3WL4S_normal.jpg",
-      id: "44196397",
-    },
-    {
-      profile_image_url:
-        "https://pbs.twimg.com/profile_images/1314309247908356103/W6qDiKYV_normal.jpg",
-      id: "803880",
-      name: "Tony Stark (Fan account)",
-      username: "tonystark",
-    },
-    {
-      username: "ufc",
-      profile_image_url:
-        "https://pbs.twimg.com/profile_images/1080527775256080389/_y_vhu2u_normal.jpg",
-      id: "6446742",
-      name: "UFC",
+        "https://pbs.twimg.com/profile_images/1082744382585856001/rH_k3PtQ_normal.jpg",
     },
   ];
   useEffect(() => {
-    axios.get("/api/defaultFavoriteUsers").then((response) => {
-      setFavoriteUsers(response.data);
-    });
-    // setTweetsReturned(testTweets);
-    // setFavoriteUsers(testFavorites);
+    // axios.get("/api/defaultFavoriteUsers").then((response) => {
+    //   setFavoriteUsers(response.data);
+    // });
+    setTweetsReturned(testTweets);
+    setFavoriteUsers(testFavorites);
   }, []);
 
   const handleSubmit = (e) => {

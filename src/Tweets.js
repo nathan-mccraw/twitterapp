@@ -16,26 +16,30 @@ const Tweets = ({ tweetsReturned, addFavorite, getUserTweets }) => {
     return null;
   }
   return (
-    <div className="col-auto">
-      <ul className="list-unstyled">
-        {tweetsReturned.map((tweet) => (
-          <li
+    <div className="container">
+      <div className="row h4">Tweets:</div>
+      {tweetsReturned.map((tweet) => (
+        <div className="row">
+          <div
             key={tweet.id}
-            className="border border-2 border-info mb-0 p-3 pb-0"
+            className="border border-2 border-info mb-0 ps-3 pe-3 pb-0"
           >
-            <div className="row">
-              <div className="col-auto">
+            <div className="row mt-2 mb-2 justify-content-between align-items-center">
+              <div className="col-auto align-items-center">
                 <img
                   src={tweet.profile_image_url}
-                  className="border border-primary p-1  mb-3 rounded-circle shadow"
+                  className="border border-primary p-1 mb-3 rounded-circle shadow"
                   alt="Profile"
                 />
               </div>
               <div
-                className="col-auto h3 text-info ps-0"
+                className="col-auto h3 text-info ps-0 nav getTweets"
                 onClick={() => getUserTweets(tweet.author_id)}
               >
                 @{tweet.username}
+                <sup>
+                  <i className="bi bi-twitter text-info ms-3"></i>
+                </sup>
               </div>
               <div className="col-auto">
                 <button
@@ -54,16 +58,15 @@ const Tweets = ({ tweetsReturned, addFavorite, getUserTweets }) => {
                     <h6>Add Fav</h6>
                   </div>
                 </button>
-                <i className="bi bi-twitter text-info"></i>
               </div>
             </div>
             <div className="row font-monospace">{tweet.text}</div>
             <div className="row fs-6 font-monospace mt-3">
               {formatDate(tweet.created_at)}
             </div>
-          </li>
-        ))}
-      </ul>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
