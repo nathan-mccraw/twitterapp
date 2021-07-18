@@ -195,18 +195,11 @@ const App = () => {
     });
   };
 
-  // const getUserTweets = (user) => {
-  //   axios.get(`/api/getUserTweets/${user.id}`).then(({ data }) => {
-  //     const tweets = data.data;
-  //     const tweetsData = tweets.map((tweet) => {
-  //       tweet.username = user.username;
-  //       tweet.profile_image_url = user.profile_image_url;
-  //       return tweet;
-  //     });
-  //     setTweetsReturned(tweetsData);
-  //     console.log(tweetsData);
-  //   });
-  // };
+  const showUserAndTweets = (user) => {
+    console.log(user);
+    getUserTweets(user.author_id);
+    setUserReturned(user);
+  };
 
   const getUserTweets = (userID) => {
     axios.get(`/api/getUserTweets/${userID}`).then((response) => {
@@ -226,7 +219,6 @@ const App = () => {
   };
 
   const addFavorite = (newFavorite) => {
-    // const newFavorite = userReturned.data;
     favoriteUsers.length
       ? setFavoriteUsers((usersArray) => [...usersArray, newFavorite])
       : setFavoriteUsers([newFavorite]);
@@ -258,6 +250,7 @@ const App = () => {
               removeFavorite={removeFavorite}
               favoriteUsers={favoriteUsers}
               getUserTweets={getUserTweets}
+              showUserAndTweets={showUserAndTweets}
             />
           )}
         />

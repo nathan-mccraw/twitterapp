@@ -25,9 +25,10 @@ app.get("/api/getUser/:username", (req, res) => {
       { headers: { authorization: `Bearer ${token}` } }
     )
     .then((response) => {
-      response.status !== 404
-        ? res.send(response.data)
-        : res.send(reponse.status);
+      console.log(response);
+      const user = response.data.data;
+      user.author_id = user.id;
+      response.status !== 404 ? res.send(user) : res.send({ status: 404 });
     })
     .catch((error) => {
       console.log(error);
