@@ -13,7 +13,7 @@ const SearchResults = ({
   return (
     <div className="container mt-4 ms-4">
       <div className="row">
-        <div className="col-3">
+        <div className="col-auto">
           <Favorites
             favoriteUsers={favoriteUsers}
             removeFavorite={removeFavorite}
@@ -24,7 +24,13 @@ const SearchResults = ({
           {userReturned && (
             <Users userReturned={userReturned} addFavorite={addFavorite} />
           )}
-          {tweetsReturned && <Tweets tweetsReturned={tweetsReturned} />}
+          {tweetsReturned && (
+            <Tweets
+              tweetsReturned={tweetsReturned}
+              addFavorite={addFavorite}
+              getUserTweets={getUserTweets}
+            />
+          )}
         </div>
       </div>
     </div>

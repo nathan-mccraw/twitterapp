@@ -17,7 +17,9 @@ const Users = ({ userReturned, addFavorite }) => {
           />
           @{userReturned.data.username}
           <button
-            onClick={addFavorite}
+            onClick={() => {
+              addFavorite(userReturned.data);
+            }}
             className="ms-3 border-0 bg-body float-md-end"
           >
             <div className="row text-center">

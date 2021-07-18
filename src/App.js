@@ -172,11 +172,11 @@ const App = () => {
     },
   ];
   useEffect(() => {
-    // axios.get("/api/defaultFavoriteUsers").then((response) => {
-    //   setFavoriteUsers(response.data);
-    // });
-    setTweetsReturned(testTweets);
-    setFavoriteUsers(testFavorites);
+    axios.get("/api/defaultFavoriteUsers").then((response) => {
+      setFavoriteUsers(response.data);
+    });
+    // setTweetsReturned(testTweets);
+    // setFavoriteUsers(testFavorites);
   }, []);
 
   const handleSubmit = (e) => {
@@ -184,27 +184,37 @@ const App = () => {
     axios.get(`/api/getUser/${searchedText}`).then((response) => {
       response.status !== 404
         ? setUserReturned(response.data)
-        : setUserReturned(null);
+        : setUserReturned([]);
     });
 
     axios.get(`/api/getTweets/${searchedText}`).then((response) => {
       console.log(response.data);
       response.data.status === 404
-        ? setTweetsReturned(null)
+        ? setTweetsReturned([])
         : setTweetsReturned(response.data);
     });
   };
 
-  const getUserTweets = (user) => {
-    axios.get(`/api/getUserTweets/${user.id}`).then(({ data }) => {
-      const tweets = data.data;
-      const tweetsData = tweets.map((tweet) => {
-        tweet.username = user.username;
-        tweet.profile_image_url = user.profile_image_url;
-        return tweet;
-      });
-      setTweetsReturned(tweetsData);
-      console.log(tweetsData);
+  // const getUserTweets = (user) => {
+  //   axios.get(`/api/getUserTweets/${user.id}`).then(({ data }) => {
+  //     const tweets = data.data;
+  //     const tweetsData = tweets.map((tweet) => {
+  //       tweet.username = user.username;
+  //       tweet.profile_image_url = user.profile_image_url;
+  //       return tweet;
+  //     });
+  //     setTweetsReturned(tweetsData);
+  //     console.log(tweetsData);
+  //   });
+  // };
+
+  const getUserTweets = (userID) => {
+    axios.get(`/api/getUserTweets/${userID}`).then((response) => {
+      response.data.status === 404
+        ? setTweetsReturned([])
+        : setTweetsReturned(response.data);
+
+      console.log(response.data);
     });
   };
 
@@ -215,8 +225,8 @@ const App = () => {
     setFavoriteUsers(newFavoriteUsers);
   };
 
-  const addFavorite = () => {
-    const newFavorite = userReturned.data;
+  const addFavorite = (newFavorite) => {
+    // const newFavorite = userReturned.data;
     favoriteUsers.length
       ? setFavoriteUsers((usersArray) => [...usersArray, newFavorite])
       : setFavoriteUsers([newFavorite]);
