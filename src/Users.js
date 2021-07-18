@@ -6,7 +6,7 @@ const Users = ({ userReturned, addFavorite, getUserTweets }) => {
   if (userReturned === null) return null;
 
   return (
-    <div className="col-auto">
+    <div className="col-auto mb-4">
       <div className="row ps-2 h4">Users:</div>
       <div className="row">
         <div className="col-auto offset-1 border border-info border-2 rounded p-2 shadow h3 text-info">
