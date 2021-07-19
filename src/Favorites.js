@@ -3,7 +3,7 @@ const Favorites = ({ favoriteUsers, removeFavorite, showUserAndTweets }) => {
     fontSize: "1rem",
   };
   return (
-    <div className="col-auto">
+    <div className="col-auto mt-4">
       <div className="row mb-4 border-bottom">
         <div className="d-line h6">Favorites List</div>
       </div>

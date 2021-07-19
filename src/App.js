@@ -13,168 +13,300 @@ const App = () => {
 
   const testTweets = [
     {
-      name: "アジッケーノ＝リコス",
+      username: "VIRPILControls",
+      url: "https://t.co/YGjAgvOZ19",
       profile_image_url:
-        "https://pbs.twimg.com/profile_images/1319892415193333760/8IqsL7FM_normal.jpg",
-      username: "ajitsukenorikos",
-      id: "1416247773897248768",
-      description:
-        "コロナ禍からメディア報道に不信感を抱き、半年間で3000本のyoutube動画を視聴。\n" +
-        "この現実に驚愕→落胆→覚醒→奮起。美しい日本を次の世代に継承させたく、ひとり草の根活動を始めました。Twitter初心者。真実を求め、日々、皆様から学ばせて頂き感謝しております。",
-      text: "RT @JunKuma8: @kouen551 @ajitsukenorikos 例えば地震当たり前の🇯🇵、東北で皆さん並んで配給待っている姿、🇯🇵じゃ普通ですが世界中が驚愕したおりこうちゃんぶり。私もNYCで世界中の人たちから延々と褒められました。「ワイの国なら暴動、殺人、レ…",
-      author_id: "1283032562454208514",
-      created_at: "2021-07-17T04:05:56.000Z",
+        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
+      id: "1415615407013179396",
+      name: "VIRPIL Controls",
+      text: "RT @Kraiklyn1: Alright, after carefully managing cables and installing firmware piece by piece we now have  the SimPit set up. Now to calib…",
+      created_at: ["2021-07-15", "10:13:08.000Z"],
+      author_id: "815156080116428800",
+      public_metrics: {
+        retweet_count: 7,
+        reply_count: 0,
+        like_count: 0,
+        quote_count: 0,
+      },
     },
     {
-      name: "Elisabeth G",
+      username: "VIRPILControls",
+      url: "https://t.co/YGjAgvOZ19",
       profile_image_url:
-        "https://pbs.twimg.com/profile_images/1375118577750183942/eH827_zm_normal.jpg",
-      username: "SuisseFlughafen",
-      id: "1416247772240617475",
-      description: "",
+        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
+      id: "1415538476775354368",
+      name: "VIRPIL Controls",
+      text: "RT @Kraiklyn1: Calibrated to a T.  - Now to jury rig them to work with #StarCitizen - I am currently digging through what is the best softw…",
+      created_at: ["2021-07-15", "05:07:26.000Z"],
+      author_id: "815156080116428800",
+      public_metrics: {
+        retweet_count: 3,
+        reply_count: 0,
+        like_count: 0,
+        quote_count: 0,
+      },
+    },
+    {
+      username: "VIRPILControls",
+      url: "https://t.co/YGjAgvOZ19",
+      profile_image_url:
+        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
+      id: "1414954539766136847",
+      name: "VIRPIL Controls",
+      text: "RT @imjabbers: Honestly I cannot recommend this box enough, love the one I bought! https://t.co/sZaIVmyFHV",
+      created_at: ["2021-07-13", "14:27:05.000Z"],
+      author_id: "815156080116428800",
+      public_metrics: {
+        retweet_count: 2,
+        reply_count: 0,
+        like_count: 0,
+        quote_count: 0,
+      },
+    },
+    {
+      username: "VIRPILControls",
+      url: "https://t.co/YGjAgvOZ19",
+      profile_image_url:
+        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
+      id: "1414658573683068939",
+      name: "VIRPIL Controls",
+      text: "RT @Kraiklyn1: #StarCitizen @VIRPILControls - This Thruster is top grade. Just waiting for the sticks to arrive on Friday and we will be ch…",
+      created_at: ["2021-07-12", "18:51:01.000Z"],
+      author_id: "815156080116428800",
+      public_metrics: {
+        retweet_count: 3,
+        reply_count: 0,
+        like_count: 0,
+        quote_count: 0,
+      },
+    },
+    {
+      username: "VIRPILControls",
+      url: "https://t.co/YGjAgvOZ19",
+      profile_image_url:
+        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
+      id: "1414656965414895617",
+      name: "VIRPIL Controls",
       text:
-        "RT @Breaking911: SHOCK VIDEO: Mother Thwarts Brazen NYC Kidnapping Attempt Yesterday In Queens; Police Searching For 2 Suspects \n" +
+        "@cmd_Terada 2/2 \n" +
         "\n" +
-        "https://t…",
-      author_id: "188160180",
-      created_at: "2021-07-17T04:05:56.000Z",
+        "Please contact our support team and let me know your ticket ID and we'll get this sorted for you ASAP I promise!",
+      created_at: ["2021-07-12", "18:44:38.000Z"],
+      author_id: "815156080116428800",
+      public_metrics: {
+        retweet_count: 0,
+        reply_count: 0,
+        like_count: 6,
+        quote_count: 0,
+      },
     },
     {
-      name: "The Goobies",
+      username: "VIRPILControls",
+      url: "https://t.co/YGjAgvOZ19",
       profile_image_url:
-        "https://pbs.twimg.com/profile_images/1415534038673199107/j0HC5DIx_normal.jpg",
-      username: "TheGoobiesComic",
-      id: "1416247756616867841",
-      description:
-        "A comic strip about the adventure of life with dogs! Publishes every Tuesday, Thursday, & Sunday on Webtoon.",
+        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
+      id: "1414656891796480003",
+      name: "VIRPIL Controls",
       text:
-        "RT @MarkLevineNYC: Too few NYers know:\n" +
+        "@cmd_Terada 1/2\n" +
         "\n" +
-        "==&gt; In-home vaccination is now available in NYC to *everyone* aged 12+.\n" +
-        "\n" +
-        "You can select any of the…",
-      author_id: "1415533595750506496",
-      created_at: "2021-07-17T04:05:52.000Z",
+        "Hi @cmd_Terada ! This absolutely isn't expected at all - there are thousands and thousands of ALPHA grips in pilot's hands all around the world and this really isn't something we come across often! I'm so sorry about this!",
+      created_at: ["2021-07-12", "18:44:20.000Z"],
+      author_id: "815156080116428800",
+      public_metrics: {
+        retweet_count: 0,
+        reply_count: 0,
+        like_count: 5,
+        quote_count: 0,
+      },
     },
     {
-      name: "Jess",
+      username: "VIRPILControls",
+      url: "https://t.co/YGjAgvOZ19",
       profile_image_url:
-        "https://pbs.twimg.com/profile_images/1356112654516047878/H9PZTXuR_normal.jpg",
-      username: "mochiiiibaby",
-      id: "1416247747422953475",
-      description: "ayo! no pendejas here. 💯🇺🇸🇰🇭🇵🇷 your joy isn’t tied to me.",
-      location: "Philly",
+        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
+      id: "1414582469790216192",
+      name: "VIRPIL Controls",
       text:
-        "RT @Breaking911: SHOCK VIDEO: Mother Thwarts Brazen NYC Kidnapping Attempt Yesterday In Queens; Police Searching For 2 Suspects \n" +
+        "The VPC Control Panel #2 will now include an optional shorter gear lever to suit a wider range of cockpit setups.\n" +
         "\n" +
-        "https://t…",
-      author_id: "214586676",
-      created_at: "2021-07-17T04:05:50.000Z",
+        "Existing Control Panel #2 owners can request this part free of charge in a future order, or for the cost of shipping!\n" +
+        "\n" +
+        "https://t.co/P71AajUWYh https://t.co/YdsznxQ3Te",
+      created_at: ["2021-07-12", "13:48:37.000Z"],
+      author_id: "815156080116428800",
+      public_metrics: {
+        retweet_count: 5,
+        reply_count: 3,
+        like_count: 45,
+        quote_count: 1,
+      },
+      attachments: { media_keys: [Array] },
     },
     {
-      name: "danielpiedras",
+      username: "VIRPILControls",
+      url: "https://t.co/YGjAgvOZ19",
       profile_image_url:
-        "https://pbs.twimg.com/profile_images/462051402454671360/ahJOiJFX_normal.jpeg",
-      username: "piedradmatera",
-      id: "1416247743023026180",
-      description:
-        "The experience of the use of reason arose from the method.  And before reason, what was it?  And before time and space? hermano Pedro Jesús de misiones 🇦🇷🌎",
-      location: "Sur Americano",
+        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
+      id: "1414535313079296002",
+      name: "VIRPIL Controls",
       text:
-        "RT @michaeljohns: We cannot have a great America without great cities, and that starts with our largest. \n" +
-        "\n" +
-        "@RudyGiuliani's mayorship ('94 t…",
-      author_id: "2458513943",
-      created_at: "2021-07-17T04:05:49.000Z",
+        "RT @aag_th: 🕹️Product #Review: #VIRPIL ACE Collection Flight Rudder Pedals by @GrimReapers_ \n" +
+        "https://t.co/acxfD9JDqJ\n" +
+        "@VIRPILControls #Fligh…",
+      created_at: ["2021-07-12", "10:41:14.000Z"],
+      author_id: "815156080116428800",
+      public_metrics: {
+        retweet_count: 1,
+        reply_count: 0,
+        like_count: 0,
+        quote_count: 0,
+      },
     },
     {
-      name: "Peter Pan",
+      username: "VIRPILControls",
+      url: "https://t.co/YGjAgvOZ19",
       profile_image_url:
-        "https://pbs.twimg.com/profile_images/1413480049567731715/kVmE_7l5_normal.jpg",
-      username: "titocole22",
-      id: "1416247742498811911",
-      description: "june 8, 2024",
-      location: "Nirvana",
-      text: "I love that ppl from nyc dont care about you crying in public",
-      author_id: "1188355738869125121",
-      created_at: "2021-07-17T04:05:49.000Z",
+        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
+      id: "1414501704607932419",
+      name: "VIRPIL Controls",
+      text: "@the_chodie Hi @the_chodie - I'm very sorry to see this! Please create a support ticket and our team will get this resolved for you ASAP!",
+      created_at: ["2021-07-12", "08:27:41.000Z"],
+      author_id: "815156080116428800",
+      public_metrics: {
+        retweet_count: 0,
+        reply_count: 0,
+        like_count: 2,
+        quote_count: 0,
+      },
     },
     {
-      name: "BK Is My Homegirl",
+      username: "VIRPILControls",
+      url: "https://t.co/YGjAgvOZ19",
       profile_image_url:
-        "https://pbs.twimg.com/profile_images/3738864848/5b52c5e994e78027f2df65b19a61c977_normal.jpeg",
-      username: "iluvmysunnies",
-      id: "1416247737545334784",
-      description: "",
-      text: "RT @lanegraelimiera: Just casually flexing in NYC https://t.co/TlbPBVWWe1",
-      author_id: "706423058",
-      created_at: "2021-07-17T04:05:47.000Z",
-    },
-    {
-      name: "😮‍💨",
-      profile_image_url:
-        "https://pbs.twimg.com/profile_images/1414389101877469189/E_aJnKvp_normal.jpg",
-      username: "drainimpala",
-      id: "1416247725218312200",
-      description: "wass6p @charli_xcx: bladee & charli 4ever 💎",
-      location: "she/her",
-      text: "buying concerts tickets without looking has already fucked me up…. bought tickets for yves tumor second nyc show and it’s the same night as coco and clair clair definitely going to coco and clair clair so now i gotta sell the yves tumor one 😁",
-      author_id: "1434112388",
-      created_at: "2021-07-17T04:05:44.000Z",
-    },
-    {
-      name: "Janice McMaster",
-      profile_image_url:
-        "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png",
-      username: "janice_mcmaster",
-      id: "1416247722647109633",
-      description: "",
-      location: "Canada",
-      text: "RT @KeithOlbermann: NYC MISSING DOG ALERT: Xena is lost in Brooklyn, last seen at 8th and Roebling. If you’ve found or seen her please go h…",
-      author_id: "1614011707",
-      created_at: "2021-07-17T04:05:44.000Z",
-    },
-    {
-      name: "ro (was god7ruiqi)",
-      profile_image_url:
-        "https://pbs.twimg.com/profile_images/1415321991112843272/mmRBEB6M_normal.jpg",
-      username: "meixuis",
-      id: "1416247713566400513",
-      description: "刘人语 + girls planet 999",
-      location: "she/her",
-      text: "@anjangchoijo she's from nyc!",
-      author_id: "1247782246859202560",
-      created_at: "2021-07-17T04:05:42.000Z",
+        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
+      id: "1412409793378201605",
+      name: "VIRPIL Controls",
+      text: "For extra adjustment on the VPC Control Panel #2, is a short gear lever arm something you would like for your setup? https://t.co/TGZl16bW41",
+      created_at: ["2021-07-06", "13:55:10.000Z"],
+      author_id: "815156080116428800",
+      public_metrics: {
+        retweet_count: 5,
+        reply_count: 8,
+        like_count: 65,
+        quote_count: 0,
+      },
+      //   attachments: { media_keys: [Array] }
     },
   ];
 
   const testFavorites = [
     {
-      id: "34743251",
-      name: "SpaceX",
+      username: "SpaceX",
       location: "Hawthorne, CA",
       public_metrics: {
-        followers_count: 17489301,
+        followers_count: 17497683,
         following_count: 100,
         tweet_count: 5353,
-        listed_count: 31951,
+        listed_count: 31946,
       },
-      username: "SpaceX",
+      id: "34743251",
+      name: "SpaceX",
       profile_image_url:
         "https://pbs.twimg.com/profile_images/1082744382585856001/rH_k3PtQ_normal.jpg",
+      author_id: "34743251",
+    },
+    {
+      username: "VIRPILControls",
+      location: "Belarus",
+      public_metrics: {
+        followers_count: 4127,
+        following_count: 30,
+        tweet_count: 509,
+        listed_count: 17,
+      },
+      id: "815156080116428800",
+      name: "VIRPIL Controls",
+      profile_image_url:
+        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
+      author_id: "815156080116428800",
+    },
+    {
+      username: "eagledynamics",
+      public_metrics: {
+        followers_count: 12654,
+        following_count: 19,
+        tweet_count: 812,
+        listed_count: 103,
+      },
+      id: "108614450",
+      name: "Eagle Dynamics",
+      profile_image_url:
+        "https://pbs.twimg.com/profile_images/1002538079972978688/4dGxNAuJ_normal.jpg",
+      author_id: "108614450",
+    },
+    {
+      username: "NIglobal",
+      location: "Austin, TX",
+      public_metrics: {
+        followers_count: 27152,
+        following_count: 2948,
+        tweet_count: 8330,
+        listed_count: 545,
+      },
+      id: "44682474",
+      name: "NI (National Instruments)",
+      profile_image_url:
+        "https://pbs.twimg.com/profile_images/1272870939517165569/ArOkskTP_normal.jpg",
+      author_id: "44682474",
+    },
+    {
+      username: "ufc",
+      location: "Worldwide",
+      public_metrics: {
+        followers_count: 8662928,
+        following_count: 638,
+        tweet_count: 114472,
+        listed_count: 14250,
+      },
+      id: "6446742",
+      name: "UFC",
+      profile_image_url:
+        "https://pbs.twimg.com/profile_images/1080527775256080389/_y_vhu2u_normal.jpg",
+      author_id: "6446742",
     },
   ];
+
+  const testUser = {
+    username: "VIRPILControls",
+    location: "Belarus",
+    public_metrics: {
+      followers_count: 4127,
+      following_count: 30,
+      tweet_count: 509,
+      listed_count: 17,
+    },
+    id: "815156080116428800",
+    name: "VIRPIL Controls",
+    profile_image_url:
+      "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
+    author_id: "815156080116428800",
+  };
+
   useEffect(() => {
     // axios.get("/api/defaultFavoriteUsers").then((response) => {
     //   setFavoriteUsers(response.data);
+    //   console.log(response.data);
     // });
     setTweetsReturned(testTweets);
     setFavoriteUsers(testFavorites);
+    setUserReturned(testUser);
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.get(`/api/getUser/${searchedText}`).then((response) => {
+      console.log(response.data);
       response.status !== 404
         ? setUserReturned(response.data)
         : setUserReturned([]);
@@ -189,7 +321,6 @@ const App = () => {
   };
 
   const showUserAndTweets = (user) => {
-    console.log(user);
     getUserTweets(user.author_id);
     setUserReturned(user);
   };
@@ -220,11 +351,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Navbar
-        searchedText={searchedText}
-        setSearchedText={setSearchedText}
-        handleSubmit={handleSubmit}
-      />
+      <Navbar />
       <div
         id="banner"
         className="border-top border-bottom border-2 border-info"
@@ -245,6 +372,9 @@ const App = () => {
               favoriteUsers={favoriteUsers}
               getUserTweets={getUserTweets}
               showUserAndTweets={showUserAndTweets}
+              searchedText={searchedText}
+              setSearchedText={setSearchedText}
+              handleSubmit={handleSubmit}
             />
           )}
         />

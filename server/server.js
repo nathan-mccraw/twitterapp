@@ -21,7 +21,6 @@ app.get("/api/getUser/:username", (req, res) => {
       { headers: { authorization: `Bearer ${token}` } }
     )
     .then((response) => {
-      console.log(response);
       const user = response.data.data;
       user.author_id = user.id;
       response.status !== 404 ? res.send(user) : res.send({ status: 404 });
@@ -35,7 +34,7 @@ app.get("/api/getUserTweets/:userID", (req, res) => {
   const id = req.params.userID;
   axios
     .get(
-      `https://api.twitter.com/2/users/${id}/tweets?max_results=10&expansions=author_id&tweet.fields=author_id,created_at,id,text&user.fields=profile_image_url,username,url`,
+      `https://api.twitter.com/2/users/${id}/tweets?expansions=author_id,attachments.media_keys&tweet.fields=attachments,author_id,created_at,public_metrics&user.fields=profile_image_url,username,url&media.fields=media_key,preview_image_url,url`,
       {
         headers: { authorization: `Bearer ${token}` },
       }
@@ -51,10 +50,10 @@ app.get("/api/getUserTweets/:userID", (req, res) => {
 
         for (let i = 0; i < tweetsArray.length; i++) {
           tweetsArray[i].created_at = tweetsArray[i].created_at.split("T");
-          console.log(tweetsArray[i]);
           tweetsWithUserInfo[i] = { ...usersArray[0], ...tweetsArray[i] };
         }
-
+        console.log(tweetsWithUserInfo);
+        console.log(tweetsWithUserInfo.attachments);
         res.send(tweetsWithUserInfo);
       }
     })
@@ -68,7 +67,7 @@ app.get("/api/getTweets/:searchedText", (req, res) => {
   const searchedText = req.params.searchedText;
   axios
     .get(
-      `https://api.twitter.com/2/tweets/search/recent?query=${searchedText}&tweet.fields=author_id,created_at&expansions=author_id&user.fields=description,id,location,name,profile_image_url,username`,
+      `https://api.twitter.com/2/tweets/search/recent?query=${searchedText}&tweet.fields=attachments,author_id,created_at,public_metrics&expansions=author_id,attachments.media_keys&media.fields=media_key,preview_image_url,url&user.fields=description,id,location,name,profile_image_url,username`,
       {
         headers: { authorization: `Bearer ${token}` },
       }
@@ -85,6 +84,7 @@ app.get("/api/getTweets/:searchedText", (req, res) => {
         for (let i = 0; i < tweetsArray.length; i++) {
           tweetsWithUsers[i] = { ...usersArray[i], ...tweetsArray[i] };
         }
+        console.log(tweetsWithUsers);
         res.send(tweetsWithUsers);
       }
     })
@@ -96,7 +96,7 @@ app.get("/api/getTweets/:searchedText", (req, res) => {
 app.get("/api/defaultFavoriteUsers", (req, res) => {
   axios
     .get(
-      "https://api.twitter.com/2/users/by?usernames=elonmusk,tonystark,ufc&user.fields=location,profile_image_url,public_metrics",
+      "https://api.twitter.com/2/users/by?usernames=spacex,virpilcontrols,eagledynamics,niglobal,ufc&user.fields=location,profile_image_url,public_metrics",
       {
         headers: { authorization: `Bearer ${token}` },
       }
@@ -105,7 +105,6 @@ app.get("/api/defaultFavoriteUsers", (req, res) => {
       const favorites = response.data.data;
       for (let i = 0; i < favorites.length; i++)
         favorites[i].author_id = favorites[i].id;
-      console.log();
       res.send(response.data.data);
     });
 });

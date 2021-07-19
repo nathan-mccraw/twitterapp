@@ -8,7 +8,6 @@ const Users = ({ userReturned, addFavorite, getUserTweets }) => {
   return (
     <div className="container">
       <div className="col-auto mb-4">
-        <div className="row h4">Users:</div>
         <div className="row">
           <div className="col-auto border border-info border-2 rounded p-2 shadow">
             <div className="row p-2 mb-2 justify-content-between align-items-center">
@@ -50,7 +49,11 @@ const Users = ({ userReturned, addFavorite, getUserTweets }) => {
               <div className="col-auto">
                 <i class="bi bi-dot"></i>
               </div>
-              <div className="col-auto">{userReturned.location}</div>
+              <div className="col-auto">
+                {userReturned.location
+                  ? userReturned.location
+                  : "Location Unknown"}
+              </div>
               <div className="col-auto">
                 <i class="bi bi-dot"></i>
               </div>
