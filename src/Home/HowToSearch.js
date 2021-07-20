@@ -1,5 +1,5 @@
-import searchPicture from "./pictures/SearchPicture.jpg";
-import homePicture from "./pictures/homePicture.jpg";
+import searchPicture from "../pictures/SearchPicture.jpg";
+import homePicture from "../pictures/homePicture.jpg";
 
 const HowToSearch = () => {
   return (

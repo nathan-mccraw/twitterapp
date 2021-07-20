@@ -1,8 +1,10 @@
 import Navbar from "./Navbar";
 import { useState, useEffect } from "react";
 import { Route, Switch } from "react-router";
-import Home from "./Home";
-import SearchResults from "./SearchResults";
+import { useHistory } from "react-router-dom";
+import Home from "./Home/Home";
+import SearchResults from "./SearchResults/SearchResults";
+import Favorites from "./Favorites/Favorites";
 import axios from "axios";
 
 const App = () => {
@@ -10,194 +12,195 @@ const App = () => {
   const [userReturned, setUserReturned] = useState(null);
   const [tweetsReturned, setTweetsReturned] = useState(null);
   const [favoriteUsers, setFavoriteUsers] = useState([]);
+  let history = useHistory();
 
   const testTweets = [
     {
-      username: "VIRPILControls",
-      url: "https://t.co/YGjAgvOZ19",
       profile_image_url:
-        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
-      id: "1415615407013179396",
-      name: "VIRPIL Controls",
-      text: "RT @Kraiklyn1: Alright, after carefully managing cables and installing firmware piece by piece we now have  the SimPit set up. Now to calib…",
-      created_at: ["2021-07-15", "10:13:08.000Z"],
-      author_id: "815156080116428800",
+        "https://pbs.twimg.com/profile_images/1002538079972978688/4dGxNAuJ.jpg",
+      id: "1417128782306103299",
+      name: "Eagle Dynamics",
+      url: "https://t.co/37wThEzpI1",
+      username: "eagledynamics",
+      author_id: "108614450",
       public_metrics: {
-        retweet_count: 7,
-        reply_count: 0,
-        like_count: 0,
+        retweet_count: 0,
+        reply_count: 1,
+        like_count: 1,
         quote_count: 0,
       },
+      text: "@the_grandad Hi, yes it is something we are considering for other missions. Thanks - Scott / bignewy",
+      created_at: ["2021-07-19", "14:26:45.000Z"],
     },
     {
-      username: "VIRPILControls",
-      url: "https://t.co/YGjAgvOZ19",
       profile_image_url:
-        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
-      id: "1415538476775354368",
-      name: "VIRPIL Controls",
-      text: "RT @Kraiklyn1: Calibrated to a T.  - Now to jury rig them to work with #StarCitizen - I am currently digging through what is the best softw…",
-      created_at: ["2021-07-15", "05:07:26.000Z"],
-      author_id: "815156080116428800",
-      public_metrics: {
-        retweet_count: 3,
-        reply_count: 0,
-        like_count: 0,
-        quote_count: 0,
-      },
-    },
-    {
-      username: "VIRPILControls",
-      url: "https://t.co/YGjAgvOZ19",
-      profile_image_url:
-        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
-      id: "1414954539766136847",
-      name: "VIRPIL Controls",
-      text: "RT @imjabbers: Honestly I cannot recommend this box enough, love the one I bought! https://t.co/sZaIVmyFHV",
-      created_at: ["2021-07-13", "14:27:05.000Z"],
-      author_id: "815156080116428800",
-      public_metrics: {
-        retweet_count: 2,
-        reply_count: 0,
-        like_count: 0,
-        quote_count: 0,
-      },
-    },
-    {
-      username: "VIRPILControls",
-      url: "https://t.co/YGjAgvOZ19",
-      profile_image_url:
-        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
-      id: "1414658573683068939",
-      name: "VIRPIL Controls",
-      text: "RT @Kraiklyn1: #StarCitizen @VIRPILControls - This Thruster is top grade. Just waiting for the sticks to arrive on Friday and we will be ch…",
-      created_at: ["2021-07-12", "18:51:01.000Z"],
-      author_id: "815156080116428800",
-      public_metrics: {
-        retweet_count: 3,
-        reply_count: 0,
-        like_count: 0,
-        quote_count: 0,
-      },
-    },
-    {
-      username: "VIRPILControls",
-      url: "https://t.co/YGjAgvOZ19",
-      profile_image_url:
-        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
-      id: "1414656965414895617",
-      name: "VIRPIL Controls",
-      text:
-        "@cmd_Terada 2/2 \n" +
-        "\n" +
-        "Please contact our support team and let me know your ticket ID and we'll get this sorted for you ASAP I promise!",
-      created_at: ["2021-07-12", "18:44:38.000Z"],
-      author_id: "815156080116428800",
+        "https://pbs.twimg.com/profile_images/1002538079972978688/4dGxNAuJ.jpg",
+      id: "1417128557357248514",
+      name: "Eagle Dynamics",
+      url: "https://t.co/37wThEzpI1",
+      username: "eagledynamics",
+      author_id: "108614450",
       public_metrics: {
         retweet_count: 0,
         reply_count: 0,
-        like_count: 6,
+        like_count: 1,
         quote_count: 0,
       },
+      text: "@StreetTripleMat Hi, I can not say I have noticed a problem in VR, I will watch for it in my sessions. Thanks - Scott / bignewy",
+      created_at: ["2021-07-19", "14:25:51.000Z"],
     },
     {
-      username: "VIRPILControls",
-      url: "https://t.co/YGjAgvOZ19",
       profile_image_url:
-        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
-      id: "1414656891796480003",
-      name: "VIRPIL Controls",
-      text:
-        "@cmd_Terada 1/2\n" +
-        "\n" +
-        "Hi @cmd_Terada ! This absolutely isn't expected at all - there are thousands and thousands of ALPHA grips in pilot's hands all around the world and this really isn't something we come across often! I'm so sorry about this!",
-      created_at: ["2021-07-12", "18:44:20.000Z"],
-      author_id: "815156080116428800",
+        "https://pbs.twimg.com/profile_images/1002538079972978688/4dGxNAuJ.jpg",
+      id: "1417036416631062529",
+      name: "Eagle Dynamics",
+      url: "https://t.co/37wThEzpI1",
+      username: "eagledynamics",
+      attachments: { media_keys: [Array] },
+      author_id: "108614450",
       public_metrics: {
-        retweet_count: 0,
-        reply_count: 0,
-        like_count: 5,
-        quote_count: 0,
-      },
-    },
-    {
-      username: "VIRPILControls",
-      url: "https://t.co/YGjAgvOZ19",
-      profile_image_url:
-        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
-      id: "1414582469790216192",
-      name: "VIRPIL Controls",
-      text:
-        "The VPC Control Panel #2 will now include an optional shorter gear lever to suit a wider range of cockpit setups.\n" +
-        "\n" +
-        "Existing Control Panel #2 owners can request this part free of charge in a future order, or for the cost of shipping!\n" +
-        "\n" +
-        "https://t.co/P71AajUWYh https://t.co/YdsznxQ3Te",
-      created_at: ["2021-07-12", "13:48:37.000Z"],
-      author_id: "815156080116428800",
-      public_metrics: {
-        retweet_count: 5,
+        retweet_count: 10,
         reply_count: 3,
-        like_count: 45,
+        like_count: 72,
         quote_count: 1,
       },
-      attachments: { media_keys: [Array] },
+      text: 'Did you catch our Sunday Supplement? We have a guide showing how to use the "Fly with a friend" WWII missions, this concept is centred around one mission that can be flown in either a single or multiplayer environment. https://t.co/vm5udCylON https://t.co/exQ747NSOy',
+      created_at: ["2021-07-19", "08:19:43.000Z"],
     },
     {
-      username: "VIRPILControls",
-      url: "https://t.co/YGjAgvOZ19",
       profile_image_url:
-        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
-      id: "1414535313079296002",
-      name: "VIRPIL Controls",
-      text:
-        "RT @aag_th: 🕹️Product #Review: #VIRPIL ACE Collection Flight Rudder Pedals by @GrimReapers_ \n" +
-        "https://t.co/acxfD9JDqJ\n" +
-        "@VIRPILControls #Fligh…",
-      created_at: ["2021-07-12", "10:41:14.000Z"],
-      author_id: "815156080116428800",
+        "https://pbs.twimg.com/profile_images/1002538079972978688/4dGxNAuJ.jpg",
+      id: "1416339268813869059",
+      name: "Eagle Dynamics",
+      url: "https://t.co/37wThEzpI1",
+      username: "eagledynamics",
+      attachments: { media_keys: [Array] },
+      author_id: "108614450",
       public_metrics: {
-        retweet_count: 1,
+        retweet_count: 9,
+        reply_count: 1,
+        like_count: 89,
+        quote_count: 1,
+      },
+      text: "Eagle Dynamics are honoured to be supporting such a fantastic event, we hope you all enjoy the Virtual Air Tattoo! #virtualairtattoo https://t.co/F6dwNRn2TV https://t.co/DvdPd2QeuH",
+      created_at: ["2021-07-17", "10:09:30.000Z"],
+    },
+    {
+      profile_image_url:
+        "https://pbs.twimg.com/profile_images/1002538079972978688/4dGxNAuJ.jpg",
+      id: "1416324231923707909",
+      name: "Eagle Dynamics",
+      url: "https://t.co/37wThEzpI1",
+      username: "eagledynamics",
+      attachments: { media_keys: [Array] },
+      author_id: "108614450",
+      public_metrics: {
+        retweet_count: 6,
         reply_count: 0,
-        like_count: 0,
+        like_count: 36,
         quote_count: 0,
       },
+      text:
+        "Virtual Air Tattoo 2021 is live now for 6 hours!\n" +
+        "We wish the display teams all the best during their displays today.\n" +
+        "\n" +
+        "Stream can be found here https://t.co/F6dwNRn2TV https://t.co/lZoPDqkfQ6",
+      created_at: ["2021-07-17", "09:09:45.000Z"],
     },
     {
-      username: "VIRPILControls",
-      url: "https://t.co/YGjAgvOZ19",
       profile_image_url:
-        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
-      id: "1414501704607932419",
-      name: "VIRPIL Controls",
-      text: "@the_chodie Hi @the_chodie - I'm very sorry to see this! Please create a support ticket and our team will get this resolved for you ASAP!",
-      created_at: ["2021-07-12", "08:27:41.000Z"],
-      author_id: "815156080116428800",
+        "https://pbs.twimg.com/profile_images/1002538079972978688/4dGxNAuJ.jpg",
+      id: "1416119549355831298",
+      name: "Eagle Dynamics",
+      url: "https://t.co/37wThEzpI1",
+      username: "eagledynamics",
+      author_id: "108614450",
       public_metrics: {
         retweet_count: 0,
         reply_count: 0,
+        like_count: 1,
+        quote_count: 0,
+      },
+      text: "@chillcommand Damage model will be improved. Thanks - Scott / bignewy",
+      created_at: ["2021-07-16", "19:36:25.000Z"],
+    },
+    {
+      profile_image_url:
+        "https://pbs.twimg.com/profile_images/1002538079972978688/4dGxNAuJ.jpg",
+      id: "1416119299857584129",
+      name: "Eagle Dynamics",
+      url: "https://t.co/37wThEzpI1",
+      username: "eagledynamics",
+      author_id: "108614450",
+      public_metrics: {
+        retweet_count: 0,
+        reply_count: 1,
         like_count: 2,
         quote_count: 0,
       },
+      text: "@benniegentil Its in our plans. :) Thanks - Scott / bignewy",
+      created_at: ["2021-07-16", "19:35:25.000Z"],
     },
     {
-      username: "VIRPILControls",
-      url: "https://t.co/YGjAgvOZ19",
       profile_image_url:
-        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
-      id: "1412409793378201605",
-      name: "VIRPIL Controls",
-      text: "For extra adjustment on the VPC Control Panel #2, is a short gear lever arm something you would like for your setup? https://t.co/TGZl16bW41",
-      created_at: ["2021-07-06", "13:55:10.000Z"],
-      author_id: "815156080116428800",
+        "https://pbs.twimg.com/profile_images/1002538079972978688/4dGxNAuJ.jpg",
+      id: "1416051244704190465",
+      name: "Eagle Dynamics",
+      url: "https://t.co/37wThEzpI1",
+      username: "eagledynamics",
+      attachments: { media_keys: [Array] },
+      author_id: "108614450",
       public_metrics: {
-        retweet_count: 5,
-        reply_count: 8,
-        like_count: 65,
+        retweet_count: 11,
+        reply_count: 0,
+        like_count: 40,
         quote_count: 0,
       },
-      //   attachments: { media_keys: [Array] }
+      text:
+        "This Saturday, 17th of July, tune in for a feast of flying fun with The Virtual Air Tattoo Airshow by The Royal Air Force Charitable Trust Enterprises. Six hours of FREE action will stream live on social media. \n" +
+        "@airtattoo @rafcharitable @BAESystemsAir \n" +
+        "\n" +
+        "https://t.co/F6dwNRn2TV https://t.co/0mm4T3CvHK",
+      created_at: ["2021-07-16", "15:05:00.000Z"],
     },
+    {
+      profile_image_url:
+        "https://pbs.twimg.com/profile_images/1002538079972978688/4dGxNAuJ.jpg",
+      id: "1416049994038222855",
+      name: "Eagle Dynamics",
+      url: "https://t.co/37wThEzpI1",
+      username: "eagledynamics",
+      attachments: { media_keys: [Array] },
+      author_id: "108614450",
+      public_metrics: {
+        retweet_count: 4,
+        reply_count: 2,
+        like_count: 51,
+        quote_count: 0,
+      },
+      text: "DCS: Normandy is receiving enhancements to airfields, buildings, forests and fields. Frame-rate improvements and the Level of Detail (LOD) for objects has also been optimised. We are planning for these updates to be included in the next Open Beta. https://t.co/6vwqp09g9P https://t.co/NztOoqsbqH",
+      created_at: ["2021-07-16", "15:00:02.000Z"],
+    },
+    {
+      profile_image_url:
+        "https://pbs.twimg.com/profile_images/1002538079972978688/4dGxNAuJ.jpg",
+      id: "1416049991286616070",
+      name: "Eagle Dynamics",
+      url: "https://t.co/37wThEzpI1",
+      username: "eagledynamics",
+      attachments: { media_keys: [Array] },
+      author_id: "108614450",
+      public_metrics: {
+        retweet_count: 7,
+        reply_count: 7,
+        like_count: 105,
+        quote_count: 2,
+      },
+      text: "Progress on DCS: Ka-50 Black Shark 3 is exciting with fine detail 3D design work on the Klimov TV3-117VMA turboshaft engines, gearbox and rotor system nearing completion. Check out the In Development screenshots, we hope you will be impressed. https://t.co/6vwqoZRELf https://t.co/l0vzvMJsPJ",
+      created_at: ["2021-07-16", "15:00:01.000Z"],
+    },
+
+    //   attachments: { media_keys: [Array] }
   ];
 
   const testFavorites = [
@@ -213,7 +216,7 @@ const App = () => {
       id: "34743251",
       name: "SpaceX",
       profile_image_url:
-        "https://pbs.twimg.com/profile_images/1082744382585856001/rH_k3PtQ_normal.jpg",
+        "https://pbs.twimg.com/profile_images/1082744382585856001/rH_k3PtQ.jpg",
       author_id: "34743251",
     },
     {
@@ -228,7 +231,7 @@ const App = () => {
       id: "815156080116428800",
       name: "VIRPIL Controls",
       profile_image_url:
-        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
+        "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu.jpg",
       author_id: "815156080116428800",
     },
     {
@@ -242,7 +245,7 @@ const App = () => {
       id: "108614450",
       name: "Eagle Dynamics",
       profile_image_url:
-        "https://pbs.twimg.com/profile_images/1002538079972978688/4dGxNAuJ_normal.jpg",
+        "https://pbs.twimg.com/profile_images/1002538079972978688/4dGxNAuJ.jpg",
       author_id: "108614450",
     },
     {
@@ -257,7 +260,7 @@ const App = () => {
       id: "44682474",
       name: "NI (National Instruments)",
       profile_image_url:
-        "https://pbs.twimg.com/profile_images/1272870939517165569/ArOkskTP_normal.jpg",
+        "https://pbs.twimg.com/profile_images/1272870939517165569/ArOkskTP.jpg",
       author_id: "44682474",
     },
     {
@@ -272,7 +275,7 @@ const App = () => {
       id: "6446742",
       name: "UFC",
       profile_image_url:
-        "https://pbs.twimg.com/profile_images/1080527775256080389/_y_vhu2u_normal.jpg",
+        "https://pbs.twimg.com/profile_images/1080527775256080389/_y_vhu2u.jpg",
       author_id: "6446742",
     },
   ];
@@ -289,7 +292,7 @@ const App = () => {
     id: "815156080116428800",
     name: "VIRPIL Controls",
     profile_image_url:
-      "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu_normal.jpg",
+      "https://pbs.twimg.com/profile_images/1284506575047188481/hSaq8LAu.jpg",
     author_id: "815156080116428800",
   };
 
@@ -305,19 +308,32 @@ const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.get(`/api/getUser/${searchedText}`).then((response) => {
-      console.log(response.data);
-      response.status !== 404
-        ? setUserReturned(response.data)
-        : setUserReturned([]);
-    });
+    history.push("/SearchResults/Tweets");
+    axios
+      .get(`/api/getUser/${searchedText}`)
+      .then((response) => {
+        console.log(response.data);
+        response.status !== 404
+          ? setUserReturned(response.data)
+          : setUserReturned("");
+      })
+      .catch((error) => {
+        console.log(error);
+        setUserReturned("");
+      });
 
-    axios.get(`/api/getTweets/${searchedText}`).then((response) => {
-      console.log(response.data);
-      response.data.status === 404
-        ? setTweetsReturned([])
-        : setTweetsReturned(response.data);
-    });
+    axios
+      .get(`/api/getTweets/${searchedText}`)
+      .then((response) => {
+        console.log(response.data);
+        response.data.status === 404
+          ? setTweetsReturned("")
+          : setTweetsReturned(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+        setTweetsReturned("");
+      });
   };
 
   const showUserAndTweets = (user) => {
@@ -327,13 +343,17 @@ const App = () => {
 
   const getUserTweets = (userID) => {
     console.log(userID);
-    axios.get(`/api/getUserTweets/${userID}`).then((response) => {
-      response.data.status === 404
-        ? setTweetsReturned([])
-        : setTweetsReturned(response.data);
-
-      console.log(response.data);
-    });
+    axios
+      .get(`/api/getUserTweets/${userID}`)
+      .then((response) => {
+        response.data.status === 404
+          ? setTweetsReturned("")
+          : setTweetsReturned(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+        setTweetsReturned("");
+      });
   };
 
   const removeFavorite = (deleteUser) => {
@@ -362,6 +382,10 @@ const App = () => {
         <Route exact path="/Home/HowToFavorites" render={() => <Home />} />
         <Route
           exact
+          path="/Favorites"
+          render={() => <Favorites favoriteUsers={favoriteUsers} />}
+        />
+        <Route
           path="/SearchResults"
           render={() => (
             <SearchResults

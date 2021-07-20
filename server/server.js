@@ -23,6 +23,7 @@ app.get("/api/getUser/:username", (req, res) => {
     .then((response) => {
       const user = response.data.data;
       user.author_id = user.id;
+      user.profile_image_url = user.profile_image_url.replace("_normal", "");
       response.status !== 404 ? res.send(user) : res.send({ status: 404 });
     })
     .catch((error) => {
@@ -51,9 +52,11 @@ app.get("/api/getUserTweets/:userID", (req, res) => {
         for (let i = 0; i < tweetsArray.length; i++) {
           tweetsArray[i].created_at = tweetsArray[i].created_at.split("T");
           tweetsWithUserInfo[i] = { ...usersArray[0], ...tweetsArray[i] };
+          tweetsWithUserInfo[i].profile_image_url = tweetsWithUserInfo[
+            i
+          ].profile_image_url.replace("_normal", "");
         }
         console.log(tweetsWithUserInfo);
-        console.log(tweetsWithUserInfo.attachments);
         res.send(tweetsWithUserInfo);
       }
     })
@@ -83,8 +86,10 @@ app.get("/api/getTweets/:searchedText", (req, res) => {
 
         for (let i = 0; i < tweetsArray.length; i++) {
           tweetsWithUsers[i] = { ...usersArray[i], ...tweetsArray[i] };
+          tweetsWithUsers[i].profile_image_url = tweetsWithUsers[
+            i
+          ].profile_image_url.replace("_normal", "");
         }
-        console.log(tweetsWithUsers);
         res.send(tweetsWithUsers);
       }
     })
@@ -105,6 +110,10 @@ app.get("/api/defaultFavoriteUsers", (req, res) => {
       const favorites = response.data.data;
       for (let i = 0; i < favorites.length; i++)
         favorites[i].author_id = favorites[i].id;
+      favorites[i].profile_image_url = favorites[i].profile_image_url.replace(
+        "_normal",
+        ""
+      );
       res.send(response.data.data);
     });
 });

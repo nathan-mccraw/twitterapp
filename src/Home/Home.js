@@ -1,7 +1,7 @@
 import HowToSearch from "./HowToSearch";
 import HowToFavorites from "./HowToFavorites";
-import AboutHome from "./AboutHome";
-import Logo from "./pictures/Mockingjay.png";
+import AboutMockingJay from "./AboutMockingJay";
+import Logo from "../pictures/Mockingjay.png";
 import { Route, Switch } from "react-router";
 import { NavLink } from "react-router-dom";
 
@@ -54,7 +54,7 @@ const Home = () => {
               </div>
             </div>
             <Switch>
-              <Route exact path="/" render={() => <AboutHome />} />
+              <Route exact path="/" render={() => <AboutMockingJay />} />
               <Route
                 exact
                 path="/Home/HowToSearch"

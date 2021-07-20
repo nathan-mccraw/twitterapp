@@ -1,6 +1,6 @@
-import threeFinger from "./pictures/threeFinger.jpg";
+import threeFinger from "../pictures/threeFinger.jpg";
 
-const HowToResults = () => {
+const AboutMockingJay = () => {
   return (
     <div className="clearfix">
       <img
@@ -32,4 +32,4 @@ const HowToResults = () => {
     </div>
   );
 };
-export default HowToResults;
+export default AboutMockingJay;

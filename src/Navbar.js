@@ -16,7 +16,7 @@ const Navbar = () => {
           </NavLink>
         </div>
       </div>
-      <div className="d-flex navbar-nav me-4">
+      <div className="navbar-nav me-4">
         <div className="navbar-item">
           <NavLink
             className="nav-link active activeLink"
@@ -25,6 +25,18 @@ const Navbar = () => {
             to="/SearchResults"
           >
             Search Results
+          </NavLink>
+        </div>
+      </div>
+      <div className="navbar-nav me-4">
+        <div className="navbar-item">
+          <NavLink
+            className="nav-link active activeLink"
+            aria-current="page"
+            exact
+            to="/Favorites"
+          >
+            Favorites
           </NavLink>
         </div>
       </div>

@@ -1,12 +1,19 @@
+import noReturnIMG from "../pictures/NoReturn.jpg";
+
 const Users = ({ userReturned, addFavorite, getUserTweets }) => {
   const styleIcon = {
     fontSize: "1.5rem",
   };
 
-  if (userReturned === null) return null;
+  if (!userReturned)
+    return (
+      <div className="text-center">
+        <img src={noReturnIMG} alt="disconnected" style={{ width: "400px" }} />
+      </div>
+    );
 
   return (
-    <div className="container">
+    <div className="container offset-3">
       <div className="col-auto mb-4">
         <div className="row">
           <div className="col-auto border border-info border-2 rounded p-2 shadow">
@@ -14,6 +21,7 @@ const Users = ({ userReturned, addFavorite, getUserTweets }) => {
               <div className="col-auto me-1">
                 <img
                   src={userReturned.profile_image_url}
+                  style={{ width: "100px" }}
                   className="border border-primary p-1 rounded-circle"
                   alt="Profile"
                 />{" "}
@@ -47,7 +55,7 @@ const Users = ({ userReturned, addFavorite, getUserTweets }) => {
             <div className="row ps-2 justify-content-center">
               <div className="col-auto">{userReturned.name}</div>
               <div className="col-auto">
-                <i class="bi bi-dot"></i>
+                <i className="bi bi-dot"></i>
               </div>
               <div className="col-auto">
                 {userReturned.location
@@ -55,7 +63,7 @@ const Users = ({ userReturned, addFavorite, getUserTweets }) => {
                   : "Location Unknown"}
               </div>
               <div className="col-auto">
-                <i class="bi bi-dot"></i>
+                <i className="bi bi-dot"></i>
               </div>
               <div className="col-auto">
                 {userReturned.public_metrics.followers_count} Follows

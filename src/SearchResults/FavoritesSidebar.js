@@ -1,11 +1,18 @@
-const Favorites = ({ favoriteUsers, removeFavorite, showUserAndTweets }) => {
+const FavoritesSidebar = ({
+  favoriteUsers,
+  removeFavorite,
+  showUserAndTweets,
+}) => {
   const styleIcon = {
     fontSize: "1rem",
   };
   return (
-    <div className="col-auto mt-4">
-      <div className="row mb-4 border-bottom">
-        <div className="d-line h6">Favorites List</div>
+    <div className="col-auto">
+      <div
+        className="row mb-4 pb-1 pt-3 border-bottom"
+        style={{ backgroundColor: "#e3f2fd" }}
+      >
+        <div className="d-line h6 text-center">Favorites List</div>
       </div>
       <ul>
         {favoriteUsers.map((user) => (
@@ -28,4 +35,4 @@ const Favorites = ({ favoriteUsers, removeFavorite, showUserAndTweets }) => {
     </div>
   );
 };
-export default Favorites;
+export default FavoritesSidebar;
