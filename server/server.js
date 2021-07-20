@@ -1,7 +1,7 @@
 const { default: axios } = require("axios");
 const express = require("express");
-const app = express();
 const path = require("path");
+const app = express();
 const port = 3000;
 const token =
   "AAAAAAAAAAAAAAAAAAAAAChVRgEAAAAAyXZ3VakgE7I5ycTefsVpoyGFug0%3DGfgQoVK9GyXe84B8CegSA0sCQ7XNTK6WlCfVsYiChiLYC3Tpc0";
@@ -35,7 +35,7 @@ app.get("/api/getUserTweets/:userID", (req, res) => {
   const id = req.params.userID;
   axios
     .get(
-      `https://api.twitter.com/2/users/${id}/tweets?expansions=author_id,attachments.media_keys&tweet.fields=attachments,author_id,created_at,public_metrics&user.fields=profile_image_url,username,url&media.fields=media_key,preview_image_url,url`,
+      `https://api.twitter.com/2/users/${id}/tweets?max_results=25&expansions=author_id,attachments.media_keys&tweet.fields=attachments,author_id,created_at,public_metrics&user.fields=profile_image_url,username,url&media.fields=media_key,preview_image_url,url`,
       {
         headers: { authorization: `Bearer ${token}` },
       }
@@ -56,7 +56,6 @@ app.get("/api/getUserTweets/:userID", (req, res) => {
             i
           ].profile_image_url.replace("_normal", "");
         }
-        console.log(tweetsWithUserInfo);
         res.send(tweetsWithUserInfo);
       }
     })
@@ -108,12 +107,13 @@ app.get("/api/defaultFavoriteUsers", (req, res) => {
     )
     .then((response) => {
       const favorites = response.data.data;
-      for (let i = 0; i < favorites.length; i++)
+      for (let i = 0; i < favorites.length; i++) {
         favorites[i].author_id = favorites[i].id;
-      favorites[i].profile_image_url = favorites[i].profile_image_url.replace(
-        "_normal",
-        ""
-      );
+        favorites[i].profile_image_url = favorites[i].profile_image_url.replace(
+          "_normal",
+          ""
+        );
+      }
       res.send(response.data.data);
     });
 });

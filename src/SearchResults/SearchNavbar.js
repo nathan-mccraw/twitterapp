@@ -13,7 +13,7 @@ const SearchNavbar = ({ handleSubmit, setSearchedText, searchedText }) => {
             onSubmit={handleSubmit}
           >
             <input
-              className="form-control me-2 rounded-pill border-0 bg-light"
+              className="form-control shadow-none me-2 rounded-pill border-0 bg-light"
               value={searchedText}
               onChange={(e) => setSearchedText(e.target.value)}
               type="search"
@@ -21,7 +21,7 @@ const SearchNavbar = ({ handleSubmit, setSearchedText, searchedText }) => {
               aria-label="Search"
             />
             <button
-              className="btn btn-outline-info border-0 rounded-circle"
+              className="btn btn-outline-info border-0 rounded-circle shadow-none"
               type="submit"
             >
               <i className="bi bi-search"></i>
@@ -34,7 +34,7 @@ const SearchNavbar = ({ handleSubmit, setSearchedText, searchedText }) => {
           <NavLink
             className="nav-link active"
             aria-current="page"
-            activeClassName="activeLink"
+            activeClassName="text-primary"
             exact
             to="/SearchResults/Tweets"
           >
@@ -45,7 +45,8 @@ const SearchNavbar = ({ handleSubmit, setSearchedText, searchedText }) => {
       <div className="col-auto navbar-nav me-4">
         <div className="navbar-item">
           <NavLink
-            className="nav-link active activeLink"
+            activeClassName="text-primary"
+            className="nav-link active"
             aria-current="page"
             exact
             to="/SearchResults/Users"

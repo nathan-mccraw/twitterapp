@@ -4,7 +4,6 @@ const Tweets = ({ tweetsReturned, addFavorite, getUserTweets }) => {
   const styleIcon = {
     fontSize: "1.5rem",
   };
-  console.log(tweetsReturned);
 
   if (!tweetsReturned)
     return (

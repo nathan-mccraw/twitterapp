@@ -1,17 +1,20 @@
-import Navbar from "./Navbar";
 import { useState, useEffect } from "react";
 import { Route, Switch } from "react-router";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
+import Navbar from "./Navbar";
 import Home from "./Home/Home";
 import SearchResults from "./SearchResults/SearchResults";
 import Favorites from "./Favorites/Favorites";
-import axios from "axios";
+import RandomTweetModal from "./Favorites/RandomTweetModal";
 
 const App = () => {
   const [searchedText, setSearchedText] = useState("");
   const [userReturned, setUserReturned] = useState(null);
   const [tweetsReturned, setTweetsReturned] = useState(null);
   const [favoriteUsers, setFavoriteUsers] = useState([]);
+  const [randomTweet, setRandomTweet] = useState("");
+  const [isRandomTweetModalOpen, setIsRandomTweetModalOpen] = useState(false);
   let history = useHistory();
 
   const testTweets = [
@@ -297,13 +300,14 @@ const App = () => {
   };
 
   useEffect(() => {
-    // axios.get("/api/defaultFavoriteUsers").then((response) => {
-    //   setFavoriteUsers(response.data);
-    //   console.log(response.data);
-    // });
-    setTweetsReturned(testTweets);
-    setFavoriteUsers(testFavorites);
-    setUserReturned(testUser);
+    axios.get("/api/defaultFavoriteUsers").then((response) => {
+      setFavoriteUsers(response.data);
+      const index = Math.floor(Math.random() * 5);
+      getRandomTweet(response.data[index].author_id);
+    });
+    // setTweetsReturned(testTweets);
+    // setFavoriteUsers(testFavorites);
+    // setUserReturned(testUser);
   }, []);
 
   const handleSubmit = (e) => {
@@ -312,7 +316,6 @@ const App = () => {
     axios
       .get(`/api/getUser/${searchedText}`)
       .then((response) => {
-        console.log(response.data);
         response.status !== 404
           ? setUserReturned(response.data)
           : setUserReturned("");
@@ -325,7 +328,6 @@ const App = () => {
     axios
       .get(`/api/getTweets/${searchedText}`)
       .then((response) => {
-        console.log(response.data);
         response.data.status === 404
           ? setTweetsReturned("")
           : setTweetsReturned(response.data);
@@ -342,7 +344,6 @@ const App = () => {
   };
 
   const getUserTweets = (userID) => {
-    console.log(userID);
     axios
       .get(`/api/getUserTweets/${userID}`)
       .then((response) => {
@@ -353,6 +354,22 @@ const App = () => {
       .catch((error) => {
         console.log(error);
         setTweetsReturned("");
+      });
+  };
+
+  const getRandomTweet = (userID) => {
+    axios
+      .get(`/api/getUserTweets/${userID}`)
+      .then((response) => {
+        if (response.data.status === 404) setRandomTweet("");
+        else {
+          const index = Math.floor(Math.random() * 25);
+          setRandomTweet(response.data[index]);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        setRandomTweet("");
       });
   };
 
@@ -369,9 +386,22 @@ const App = () => {
       : setFavoriteUsers([newFavorite]);
   };
 
+  const showRandomTweetModal = (user) => {
+    setIsRandomTweetModalOpen(true);
+    getRandomTweet(user.author_id);
+  };
+  const hideRandomTweetModal = () => setIsRandomTweetModalOpen(false);
+
   return (
     <div className="App">
       <Navbar />
+      <div className="position-fixed dflex justify-content-center align-items-center">
+        <RandomTweetModal
+          isRandomTweetModalOpen={isRandomTweetModalOpen}
+          hideRandomTweetModal={hideRandomTweetModal}
+          randomTweet={randomTweet}
+        />
+      </div>
       <div
         id="banner"
         className="border-top border-bottom border-2 border-info"
@@ -383,7 +413,14 @@ const App = () => {
         <Route
           exact
           path="/Favorites"
-          render={() => <Favorites favoriteUsers={favoriteUsers} />}
+          render={() => (
+            <Favorites
+              favoriteUsers={favoriteUsers}
+              isRandomTweetModalOpen={isRandomTweetModalOpen}
+              showRandomTweetModal={showRandomTweetModal}
+              hideRandomTweetModal={hideRandomTweetModal}
+            />
+          )}
         />
         <Route
           path="/SearchResults"

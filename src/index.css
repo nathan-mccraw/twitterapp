@@ -27,5 +27,8 @@ code {
 
 .getTweets:hover {
   cursor: pointer;
-  color: gray;
+}
+
+.getRandomTweets:hover {
+  cursor: pointer;
 }

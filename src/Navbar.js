@@ -1,14 +1,21 @@
 import { NavLink } from "react-router-dom";
+import Logo from "./pictures/Mockingjay.png";
 
 const Navbar = () => {
   return (
     <nav className="navbar justify-content-start navbar-light bg-light p-2 pb-3 border-bottom border-info bg-white">
-      <div className="navbar-nav me-4">
-        <div className="navbar-item">
+      <div className="navbar-nav">
+        <div className="navbar-item d-flex">
+          <img
+            src={Logo}
+            alt="Logo"
+            style={{ width: "70px" }}
+            className="p-0 m-0 me-2"
+          />
           <NavLink
             className="nav-link active"
             aria-current="page"
-            activeClassName="activeLink"
+            activeClassName="text-primary"
             exact
             to="/"
           >
@@ -16,10 +23,12 @@ const Navbar = () => {
           </NavLink>
         </div>
       </div>
-      <div className="navbar-nav me-4">
-        <div className="navbar-item">
+      <div className="navbar-nav">
+        <div className="navbar-item d-flex align-items-center">
+          <i className="bi bi-dot ms-4 me-4"></i>
           <NavLink
-            className="nav-link active activeLink"
+            activeClassName="text-primary"
+            className="nav-link active"
             aria-current="page"
             exact
             to="/SearchResults"
@@ -28,10 +37,12 @@ const Navbar = () => {
           </NavLink>
         </div>
       </div>
-      <div className="navbar-nav me-4">
-        <div className="navbar-item">
+      <div className="navbar-nav">
+        <div className="navbar-item d-flex align-items-center">
+          <i className="bi bi-dot ms-4 me-4"></i>
           <NavLink
-            className="nav-link active activeLink"
+            activeClassName="text-primary"
+            className="nav-link active"
             aria-current="page"
             exact
             to="/Favorites"
