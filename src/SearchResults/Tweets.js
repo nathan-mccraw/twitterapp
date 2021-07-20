@@ -1,6 +1,6 @@
 import noReturnIMG from "../pictures/NoReturn.jpg";
 
-const Tweets = ({ tweetsReturned, addFavorite, getUserTweets }) => {
+const Tweets = ({ tweetsReturned, addFavorite, getUserTweets, isFavorite }) => {
   const styleIcon = {
     fontSize: "1.5rem",
   };
@@ -39,24 +39,26 @@ const Tweets = ({ tweetsReturned, addFavorite, getUserTweets }) => {
                   </div>
                   <div className="row ms-0 ps-4">{tweet.name}</div>
                 </div>
-                <div className="col-auto ms-auto">
-                  <button
-                    onClick={() => {
-                      addFavorite(tweet);
-                    }}
-                    className="ms-3 border-0 bg-body float-md-end"
-                  >
-                    <div className="row text-center">
-                      <i
-                        className="bi bi-person-plus-fill text-info"
-                        style={styleIcon}
-                      ></i>
-                    </div>
-                    <div className="row text-center">
-                      <h6>Add Fav</h6>
-                    </div>
-                  </button>
-                </div>
+                {!isFavorite(tweet) && (
+                  <div className="col-auto ms-auto">
+                    <button
+                      onClick={() => {
+                        addFavorite(tweet);
+                      }}
+                      className="ms-3 border-0 bg-body float-md-end"
+                    >
+                      <div className="row text-center">
+                        <i
+                          className="bi bi-person-plus-fill text-info"
+                          style={styleIcon}
+                        ></i>
+                      </div>
+                      <div className="row text-center">
+                        <h6>Add Fav</h6>
+                      </div>
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
             <div id="tweetBody" className="row ms-0 pb-1 mb-2 border-bottom">

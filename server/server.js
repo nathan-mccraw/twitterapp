@@ -48,9 +48,14 @@ app.get("/api/getUserTweets/:userID", (req, res) => {
         const usersArray = response.data.includes.users;
         const tweetsArray = response.data.data;
         let tweetsWithUserInfo = [];
+        function formatDateTimeGroup(dtg) {
+          let a = dtg.split(/[-t:.]/gi);
+          return new Date(Date.UTC(a[0], --a[1], a[2], a[3], a[4], a[5]));
+        }
 
         for (let i = 0; i < tweetsArray.length; i++) {
-          tweetsArray[i].created_at = tweetsArray[i].created_at.split("T");
+          const date = formatDateTimeGroup(tweetsArray[i].created_at);
+          tweetsArray[i].created_at = date.toUTCString();
           tweetsWithUserInfo[i] = { ...usersArray[0], ...tweetsArray[i] };
           tweetsWithUserInfo[i].profile_image_url = tweetsWithUserInfo[
             i

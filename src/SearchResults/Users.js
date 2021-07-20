@@ -1,6 +1,6 @@
 import noReturnIMG from "../pictures/NoReturn.jpg";
 
-const Users = ({ userReturned, addFavorite, getUserTweets }) => {
+const Users = ({ userReturned, addFavorite, getUserTweets, isFavorite }) => {
   const styleIcon = {
     fontSize: "1.5rem",
   };
@@ -35,22 +35,24 @@ const Users = ({ userReturned, addFavorite, getUserTweets }) => {
                   <i className="bi bi-twitter text-info ms-2"></i>
                 </sup>
               </div>
-              <div className="col-auto">
-                <button
-                  onClick={() => {
-                    addFavorite(userReturned);
-                  }}
-                  className="col ms-3 border-0 bg-body float-md-end"
-                >
-                  <div className="row text-center">
-                    <i
-                      className="bi bi-person-plus-fill text-info"
-                      style={styleIcon}
-                    ></i>
-                  </div>
-                  <div className="row h6 text-center">Add Fav</div>
-                </button>
-              </div>
+              {!isFavorite(userReturned) && (
+                <div className="col-auto">
+                  <button
+                    onClick={() => {
+                      addFavorite(userReturned);
+                    }}
+                    className="col ms-3 border-0 bg-body float-md-end"
+                  >
+                    <div className="row text-center">
+                      <i
+                        className="bi bi-person-plus-fill text-info"
+                        style={styleIcon}
+                      ></i>
+                    </div>
+                    <div className="row h6 text-center">Add Fav</div>
+                  </button>
+                </div>
+              )}
             </div>
             <div className="row ps-2 justify-content-center">
               <div className="col-auto">{userReturned.name}</div>

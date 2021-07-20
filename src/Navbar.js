@@ -13,7 +13,7 @@ const Navbar = () => {
             className="p-0 m-0 me-2"
           />
           <NavLink
-            className="nav-link active"
+            className="nav-link"
             aria-current="page"
             activeClassName="text-primary"
             exact
@@ -28,12 +28,12 @@ const Navbar = () => {
           <i className="bi bi-dot ms-4 me-4"></i>
           <NavLink
             activeClassName="text-primary"
-            className="nav-link active"
+            className="nav-link"
             aria-current="page"
             exact
             to="/SearchResults"
           >
-            Search Results
+            Search
           </NavLink>
         </div>
       </div>

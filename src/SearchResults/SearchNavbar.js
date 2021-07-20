@@ -1,6 +1,14 @@
 import { NavLink } from "react-router-dom";
 
-const SearchNavbar = ({ handleSubmit, setSearchedText, searchedText }) => {
+const SearchNavbar = ({
+  handleSubmit,
+  setSearchedText,
+  searchedText,
+  isViewingTweets,
+  setIsViewingTweets,
+  isViewingUser,
+  setIsViewingUser,
+}) => {
   return (
     <nav
       className="navbar navbar-expand-lg navbar-light border-bottom pt-1 pb-1"
@@ -37,7 +45,21 @@ const SearchNavbar = ({ handleSubmit, setSearchedText, searchedText }) => {
             activeClassName="text-primary"
             exact
             to="/SearchResults/Tweets"
+            isActive={(match, location) => {
+              console.log(match);
+              if (match) {
+                setIsViewingTweets(true);
+                setIsViewingUser(false);
+              }
+
+              return match;
+            }}
           >
+            {isViewingTweets ? (
+              <i className="bi bi-caret-down-square me-1"></i>
+            ) : (
+              <i className="bi bi-caret-right me-1"></i>
+            )}
             Tweets
           </NavLink>
         </div>
@@ -50,7 +72,20 @@ const SearchNavbar = ({ handleSubmit, setSearchedText, searchedText }) => {
             aria-current="page"
             exact
             to="/SearchResults/Users"
+            isActive={(match, location) => {
+              if (match) {
+                setIsViewingTweets(false);
+                setIsViewingUser(true);
+              }
+              return match;
+            }}
           >
+            {" "}
+            {isViewingUser ? (
+              <i className="bi bi-caret-down-square me-1"></i>
+            ) : (
+              <i className="bi bi-caret-right me-1"></i>
+            )}
             Users
           </NavLink>
         </div>

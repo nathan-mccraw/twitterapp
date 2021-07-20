@@ -15,6 +15,11 @@ const SearchResults = ({
   searchedText,
   setSearchedText,
   handleSubmit,
+  isViewingTweets,
+  setIsViewingTweets,
+  isViewingUser,
+  setIsViewingUser,
+  isFavorite,
 }) => {
   return (
     <div className="container-fluid pe-0 ps-0">
@@ -32,6 +37,10 @@ const SearchResults = ({
               searchedText={searchedText}
               setSearchedText={setSearchedText}
               handleSubmit={handleSubmit}
+              isViewingTweets={isViewingTweets}
+              setIsViewingTweets={setIsViewingTweets}
+              isViewingUser={isViewingUser}
+              setIsViewingUser={setIsViewingUser}
             />
           </div>
           <Switch>
@@ -44,6 +53,7 @@ const SearchResults = ({
                   userReturned={userReturned}
                   addFavorite={addFavorite}
                   getUserTweets={getUserTweets}
+                  isFavorite={isFavorite}
                 />
               )}
             />
@@ -56,6 +66,7 @@ const SearchResults = ({
                   tweetsReturned={tweetsReturned}
                   addFavorite={addFavorite}
                   getUserTweets={getUserTweets}
+                  isFavorite={isFavorite}
                 />
               )}
             />
