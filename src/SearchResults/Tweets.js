@@ -1,9 +1,7 @@
 import noReturnIMG from "../pictures/NoReturn.jpg";
 
 const Tweets = ({ tweetsReturned, addFavorite, getUserTweets, isFavorite }) => {
-  const styleIcon = {
-    fontSize: "1.5rem",
-  };
+  console.log(tweetsReturned);
 
   if (!tweetsReturned)
     return (
@@ -50,7 +48,7 @@ const Tweets = ({ tweetsReturned, addFavorite, getUserTweets, isFavorite }) => {
                       <div className="row text-center">
                         <i
                           className="bi bi-person-plus-fill text-info"
-                          style={styleIcon}
+                          style={{ fontSize: "1.5rem" }}
                         ></i>
                       </div>
                       <div className="row text-center">
@@ -64,6 +62,14 @@ const Tweets = ({ tweetsReturned, addFavorite, getUserTweets, isFavorite }) => {
             <div id="tweetBody" className="row ms-0 pb-1 mb-2 border-bottom">
               {tweet.text}
             </div>
+            {tweet.hasOwnProperty("attachments") && (
+              <div className="row justify-content-center">
+                {tweet.attachments.media.photos.length &&
+                  tweet.attachments.media.photos.map((media) => (
+                    <img src={media.url} className="mb-2 pb-2 border-bottom" />
+                  ))}
+              </div>
+            )}
             <div className="row mb-2">
               <div className="col-auto">{tweet.created_at}</div>
               <div className="col-auto">

@@ -1,10 +1,6 @@
 import noReturnIMG from "../pictures/NoReturn.jpg";
 
 const Users = ({ userReturned, addFavorite, getUserTweets, isFavorite }) => {
-  const styleIcon = {
-    fontSize: "1.5rem",
-  };
-
   if (!userReturned)
     return (
       <div className="text-center">
@@ -35,7 +31,7 @@ const Users = ({ userReturned, addFavorite, getUserTweets, isFavorite }) => {
                   <i className="bi bi-twitter text-info ms-2"></i>
                 </sup>
               </div>
-              {!isFavorite(userReturned) && (
+              {!isFavorite(userReturned) ? (
                 <div className="col-auto">
                   <button
                     onClick={() => {
@@ -46,11 +42,18 @@ const Users = ({ userReturned, addFavorite, getUserTweets, isFavorite }) => {
                     <div className="row text-center">
                       <i
                         className="bi bi-person-plus-fill text-info"
-                        style={styleIcon}
+                        style={{ fontSize: "1.5rem" }}
                       ></i>
                     </div>
                     <div className="row h6 text-center">Add Fav</div>
                   </button>
+                </div>
+              ) : (
+                <div className="col-auto text-center ms-3 border-0 float-md-end">
+                  <i
+                    className="bi bi-person-check-fill text-info"
+                    style={{ fontSize: "1.5rem" }}
+                  ></i>
                 </div>
               )}
             </div>
