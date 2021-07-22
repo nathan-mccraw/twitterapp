@@ -10,9 +10,13 @@ const RandomTweet = ({ randomTweet }) => {
     );
 
   return (
-    <div className="container offset-3">
-      <div id="tweetObject" className="row" key={randomTweet.id}>
-        <div className="col-6 mb-4 p-0 ps-4 pe-3 border border-2 border-info shadow rounded-3">
+    <div className="container">
+      <div
+        id="tweetObject"
+        className="row justify-content-center ps-3 pe-3"
+        key={randomTweet.id}
+      >
+        <div className="col-auto mb-4 p-0 ps-4 pe-3 border border-2 border-info shadow rounded-3">
           <div id="tweetHeader" className="row mb-2 pb-2 border-bottom">
             <div
               id="tweetProfileIMG"
@@ -37,6 +41,14 @@ const RandomTweet = ({ randomTweet }) => {
           <div id="tweetBody" className="row ms-0 pb-1 mb-2 border-bottom">
             {randomTweet.text}
           </div>
+          {randomTweet.hasOwnProperty("attachments") && (
+            <div className="row justify-content-center">
+              {randomTweet.attachments.media.photos.length &&
+                randomTweet.attachments.media.photos.map((media) => (
+                  <img src={media.url} className="mb-2 pb-2 border-bottom" />
+                ))}
+            </div>
+          )}
           <div className="row mb-2">
             <div className="col-auto">{randomTweet.created_at}</div>
             <div className="col-auto">

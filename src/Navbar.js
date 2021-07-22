@@ -21,7 +21,7 @@ const Navbar = () => {
             exact
             to="/"
           >
-            MockingJay <i className="bi bi-info-circle "></i>
+            MockingJay
           </NavLink>
         </div>
       </div>
@@ -50,6 +50,20 @@ const Navbar = () => {
             to="/Favorites"
           >
             Favorites
+          </NavLink>
+        </div>
+      </div>
+      <div className="navbar-nav">
+        <div className="navbar-item d-flex align-items-center">
+          <i className="bi bi-dot ms-4 me-4"></i>
+          <NavLink
+            activeClassName="text-primary"
+            className="nav-link"
+            aria-current="page"
+            exact
+            to="/AboutMockingJay"
+          >
+            About <i className="bi bi-info-circle "></i>
           </NavLink>
         </div>
       </div>

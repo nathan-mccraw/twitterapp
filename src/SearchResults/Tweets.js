@@ -1,8 +1,6 @@
 import noReturnIMG from "../pictures/NoReturn.jpg";
 
 const Tweets = ({ tweetsReturned, addFavorite, getUserTweets, isFavorite }) => {
-  console.log(tweetsReturned);
-
   if (!tweetsReturned)
     return (
       <div className="text-center">
@@ -37,13 +35,13 @@ const Tweets = ({ tweetsReturned, addFavorite, getUserTweets, isFavorite }) => {
                   </div>
                   <div className="row ms-0 ps-4">{tweet.name}</div>
                 </div>
-                {!isFavorite(tweet) && (
+                {!isFavorite(tweet) ? (
                   <div className="col-auto ms-auto">
                     <button
                       onClick={() => {
                         addFavorite(tweet);
                       }}
-                      className="ms-3 border-0 bg-body float-md-end"
+                      className="col ms-3 border-0 bg-body float-md-end"
                     >
                       <div className="row text-center">
                         <i
@@ -51,10 +49,15 @@ const Tweets = ({ tweetsReturned, addFavorite, getUserTweets, isFavorite }) => {
                           style={{ fontSize: "1.5rem" }}
                         ></i>
                       </div>
-                      <div className="row text-center">
-                        <h6>Add Fav</h6>
-                      </div>
+                      <div className="row h6 text-center">Add Fav</div>
                     </button>
+                  </div>
+                ) : (
+                  <div className="col-auto ms-auto text-center border-0">
+                    <i
+                      className="bi bi-person-check-fill text-info"
+                      style={{ fontSize: "1.5rem" }}
+                    ></i>
                   </div>
                 )}
               </div>

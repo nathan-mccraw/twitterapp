@@ -23,7 +23,7 @@ const Users = ({ userReturned, addFavorite, getUserTweets, isFavorite }) => {
                 />{" "}
               </div>
               <div
-                className="col-auto h3 text-info getTweets"
+                className="col-auto h2 text-info getTweets"
                 onClick={() => getUserTweets(userReturned.author_id)}
               >
                 @{userReturned.username}

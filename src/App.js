@@ -3,10 +3,11 @@ import { Route, Switch } from "react-router";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Navbar from "./Navbar";
-import Home from "./Home/Home";
+import About from "./About/About";
 import SearchResults from "./SearchResults/SearchResults";
 import Favorites from "./Favorites/Favorites";
 import RandomTweetModal from "./Favorites/RandomTweetModal";
+import Home from "./Home/Home";
 
 const App = () => {
   const [searchedText, setSearchedText] = useState("");
@@ -136,8 +137,17 @@ const App = () => {
       ></div>
       <Switch>
         <Route exact path="/" render={() => <Home />} />
-        <Route exact path="/Home/HowToSearch" render={() => <Home />} />
-        <Route exact path="/Home/HowToFavorites" render={() => <Home />} />
+        <Route exact path="/AboutMockingJay" render={() => <About />} />
+        <Route
+          exact
+          path="/AboutMockingJay/HowToSearch"
+          render={() => <About />}
+        />
+        <Route
+          exact
+          path="/AboutMockingJay/HowToFavorites"
+          render={() => <About />}
+        />
         <Route
           exact
           path="/Favorites"
