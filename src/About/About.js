@@ -21,8 +21,11 @@ const About = () => {
               <div className="container">
                 <div className="row justify-content-start">
                   <div className="col-9">
-                    <h1 className="border-bottom pb-4 text-info">
-                      MockingJay -- A Twitter Proxy
+                    <h1
+                      className="border-bottom pb-4 text-info"
+                      style={{ fontFamily: "'Pacifico', cursive" }}
+                    >
+                      MockingJay -- Twitter Proxy
                     </h1>
                   </div>
                   <div className="col-3">
@@ -66,29 +69,29 @@ const About = () => {
                 render={() => <HowToFavorites />}
               />
             </Switch>
-          </div>
-          <div className="row justify-content-center text-center mt-3">
-            <div className="col h2">
-              <NavLink
-                className="nav-link active"
-                aria-current="page"
-                activeClassName="activeLink"
-                exact
-                to="/AboutMockingJay/HowToSearch"
-              >
-                How To Use 'Search'
-              </NavLink>
-            </div>
-            <div className="col h2">
-              <NavLink
-                className="nav-link active"
-                aria-current="page"
-                activeClassName="activeLink"
-                exact
-                to="/AboutMockingJay/HowToFavorites"
-              >
-                How To Use 'Favorites'
-              </NavLink>
+            <div className="row justify-content-center border-top text-center mt-2 mb-0 pt-2 pb-0">
+              <div className="col h3">
+                <NavLink
+                  className="nav-link"
+                  aria-current="page"
+                  activeClassName="activeLink active"
+                  exact
+                  to="/AboutMockingJay/HowToSearch"
+                >
+                  How To Use 'Search'
+                </NavLink>
+              </div>
+              <div className="col h3">
+                <NavLink
+                  className="nav-link"
+                  aria-current="page"
+                  activeClassName="activeLink active"
+                  exact
+                  to="/AboutMockingJay/HowToFavorites"
+                >
+                  How To Use 'Favorites'
+                </NavLink>
+              </div>
             </div>
           </div>
         </div>
