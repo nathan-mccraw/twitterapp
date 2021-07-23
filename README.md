@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# "MockingJay" -- Twitter API App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+MockingJay allows users to search for tweets and Twitter users, see a Twitter user's timeline, add/remove a Twitter user to a "Favorites List", and display a random tweet from the "Favorites List". MockingJay has only obtained a 'read-only' developer account with Twitter, so no information can be passed/posted/sent to Twitter, only retrieved.
 
-## Available Scripts
+Use the MockingJay -- Twitter API App [here]().
 
-In the project directory, you can run:
+## Instructions for Use
 
-### `npm start`
+### Homepage
+The homepage of MockingJay is a landing page with a navigational toolbar at the top fo the screen.  This toolbar serves as the primary method of navigation between the home page, the search page, the favorites page, and the instructions/about page.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![SplashScreenSnip](https://user-images.githubusercontent.com/84479635/126734564-99d403a3-b10e-417c-bb11-f3ed099ccb8e.JPG)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+##
 
-### `npm test`
+### Search Tab
+The search page has three main components.  A secondary navigation bar with an input field located below the banner, a favorites list displayed in a sidebar, and the search results located in the main body of the browser.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![TweetContentSearch](https://user-images.githubusercontent.com/84479635/126735087-0f573018-7a60-4c78-864c-4be0565febe1.JPG)
 
-### `npm run build`
+#### Tweet Content Search
+Entering text into the input field and submitting it, either via keyboard or mouse click on the search icon, returns tweets in the main body of the browser containing tweet content matching the text submitted.  The user can see that the results they are viewing are from a tweet content search by observing the downward pointing boxed caret icon and active colored "tweet" text on the secondary navbar.  The browser will display up to 30 tweets from the search; the user can add any Twitter handle returned from the search to the favorites list by clicking on the "Add Fav" icon located beside the user name.  Clicking the username will replace the current search in the main body of the browser with that Twitter handle's timeline, displaying that Twitter handle's last 30 tweets.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![UserSearch](https://user-images.githubusercontent.com/84479635/126735411-2e5e62de-b776-4b57-bcdb-ac4f2e95046f.JPG)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### User Search
+Due to limitations of the Twitter API, MockingJay currently only supports a single, exact match, username search.  After submitting a search using the secondary toolbar in the same way as searching tweet content, navigate to the user page utilizing the secondary toolbar "Users" link.  The single, exact match username will be displayed in the main body of the browser, with the same ability to add the Twitter handle to favorites using the "Add Fav" icon as with the tweet content search.  Clicking on the username will also replace the search on the "Tweets" page with that Twitter handle's timeline in the main body of the browser.
 
-### `npm run eject`
+#### Favorites List
+The favorites list on the left sidebar of the search page allows users to do two things: first, it allows the user to click on a Twitter handle that has been designated as a favorite which will both display that Twitter handle's timeline containing a maximum of it's last 30 tweets, and by navigating to the "Users" tab on the secondary navbar, displays additional public metrics associated with that Twitter handle.  Secondily, the favorites list on the left sidebar allows a user to remove a Twitter handle from it's favorite list by clicking the corresponding icon beside the Twitter handle.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+##
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![FavoritesTab](https://user-images.githubusercontent.com/84479635/126736241-f98f2b9d-223c-42c8-8f41-10ff1a68c5c3.JPG)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Favorites Tab
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Navigating to the favorites tab via the main navigational toolbar located at the top of the application displays additional public metrics about the user's favorites list.  Clicking on a twitter handle will display a random tweet from that Twitter handle's timeline.
 
-## Learn More
+![RandomTweet](https://user-images.githubusercontent.com/84479635/126736633-1282a335-e22a-45d9-9d0d-93fd5da0c2c3.JPG)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+##
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![About Home](https://user-images.githubusercontent.com/84479635/126736799-0f28aa50-9e9e-45ed-b8c2-09d35cc67e91.JPG)
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### About/Instructional Tab
 
-### Analyzing the Bundle Size
+The about/instructional page displays information about the application and how to use the application.  Please reference this page for any further questions regarding the use of this application as it contains three items of content: a broad overview of the application, how to use the search functionality, and how to use the favorite users functionality.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Summary of Build
+The MockingJay app implements HTML, React/JavaScript, CSS/Bootstrap, NodeJS, ExpressJS and is deployed on Heroku via Github.  The application utlizes the [twitter API Verision 2](https://developer.twitter.com/en/docs/twitter-api/early-access), which in early access and is not yet fully featured; most notable is the inability to embed video contained in  tweets. MockingJay has obtained a 'read-only' developer account and as such, no information can be posted or sent to Twitter accounts, only retrieved and viewed.  The Twitter API does not allow Cross-Origin Resource sharing; in order to resolve this, Mockingjay implements a client-side API written in ExpressJS.  The client-side API recieves a HTTP request from the client browser, forwards the request to Twitter, and recieves the HTTP response from the Twitter API.  The client side API manipulates the data structures it recieves and sends it to the client browser.  This minimizes information sent to the client browser to only what the browser needs to display and allows all data manipulation and handling to occur in the same time and space complexity to minimize computing time and memory space.  The client-side API sends the HTTP response to the client browser, where the client browser only has to pick and choose what data needs to be displayed at the desired location. 
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Author
+Nathan McCraw -- Software Developer [LinkedIn](https://www.linkedin.com/in/nathan-mccraw-5291535b/) [Personal Website - In Production]
