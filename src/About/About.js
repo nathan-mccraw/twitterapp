@@ -44,7 +44,7 @@ const About = () => {
                           ></i>
                         </div>
                         <div className="row text-center">
-                          <h6>home</h6>
+                          <h6>About Home</h6>
                         </div>
                       </NavLink>
                     </div>
