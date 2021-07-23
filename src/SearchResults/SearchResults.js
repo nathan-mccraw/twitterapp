@@ -20,6 +20,7 @@ const SearchResults = ({
   isViewingUser,
   setIsViewingUser,
   isFavorite,
+  history,
 }) => {
   return (
     <div className="container-fluid pe-0 ps-0">
@@ -54,6 +55,7 @@ const SearchResults = ({
                   addFavorite={addFavorite}
                   getUserTweets={getUserTweets}
                   isFavorite={isFavorite}
+                  history={history}
                 />
               )}
             />

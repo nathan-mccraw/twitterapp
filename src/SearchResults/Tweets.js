@@ -67,10 +67,9 @@ const Tweets = ({ tweetsReturned, addFavorite, getUserTweets, isFavorite }) => {
             </div>
             {tweet.hasOwnProperty("attachments") && (
               <div className="row justify-content-center">
-                {tweet.attachments.media.photos.length &&
-                  tweet.attachments.media.photos.map((media) => (
-                    <img src={media.url} className="mb-2 pb-2 border-bottom" />
-                  ))}
+                {tweet.attachments.media.photos.map((media) => (
+                  <img src={media.url} className="mb-2 pb-2 border-bottom" />
+                ))}
               </div>
             )}
             <div className="row mb-2">

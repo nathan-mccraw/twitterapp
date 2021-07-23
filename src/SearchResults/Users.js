@@ -1,6 +1,12 @@
 import noReturnIMG from "../pictures/NoReturn.jpg";
 
-const Users = ({ userReturned, addFavorite, getUserTweets, isFavorite }) => {
+const Users = ({
+  userReturned,
+  addFavorite,
+  getUserTweets,
+  isFavorite,
+  history,
+}) => {
   if (!userReturned)
     return (
       <div className="text-center">
@@ -24,7 +30,10 @@ const Users = ({ userReturned, addFavorite, getUserTweets, isFavorite }) => {
               </div>
               <div
                 className="col-auto h2 text-info getTweets"
-                onClick={() => getUserTweets(userReturned.author_id)}
+                onClick={() => {
+                  getUserTweets(userReturned.author_id);
+                  history.push("/SearchResults/Tweets");
+                }}
               >
                 @{userReturned.username}
                 <sup>

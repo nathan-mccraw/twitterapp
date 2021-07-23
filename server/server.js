@@ -28,7 +28,9 @@ app.get("/api/getUser/:username", (req, res) => {
     .then((response) => {
       const user = response.data.data;
       user.author_id = user.id;
-      user.profile_image_url = user.profile_image_url.replace("_normal", "");
+      if (user.hasOwnProperty("profile_image_url"))
+        user.profile_image_url = user.profile_image_url.replace("_normal", "");
+
       response.status !== 404 ? res.send(user) : res.send({ status: 404 });
     })
     .catch((error) => {
@@ -63,9 +65,11 @@ app.get("/api/getUserTweets/:userID", (req, res) => {
             ...tweetsArray[i],
           };
 
-          tweetsWithUserInfo[i].profile_image_url = tweetsWithUserInfo[
-            i
-          ].profile_image_url.replace("_normal", "");
+          if (tweetsWithUserInfo[i].hasOwnProperty("profile_image_url")) {
+            tweetsWithUserInfo[i].profile_image_url = tweetsWithUserInfo[
+              i
+            ].profile_image_url.replace("_normal", "");
+          }
 
           if (tweetsWithUserInfo[i].hasOwnProperty("attachments")) {
             tweetsWithUserInfo[i].attachments.media = {
@@ -95,9 +99,10 @@ app.get("/api/getUserTweets/:userID", (req, res) => {
                   tweetsWithUserInfo[i].attachments.media.animatedGIF.push(
                     mediaArray[index]
                   );
+                  break;
+                default:
+                  delete tweetsWithUserInfo[i].attachments.media;
               }
-
-              console.log(tweetsWithUserInfo[i].attachments.media);
             });
           }
         }
@@ -133,15 +138,23 @@ app.get("/api/getTweets/:searchedText", (req, res) => {
           tweetsArray[i].created_at = timestamp.toUTCString();
 
           tweetsWithUserInfo[i] = {
-            ...includesObject.users[0],
+            ...includesObject.users[i],
             ...tweetsArray[i],
           };
 
-          tweetsWithUserInfo[i].profile_image_url = tweetsWithUserInfo[
-            i
-          ].profile_image_url.replace("_normal", "");
+          if (tweetsWithUserInfo[i].hasOwnProperty("profile_image_url")) {
+            tweetsWithUserInfo[i].profile_image_url = tweetsWithUserInfo[
+              i
+            ].profile_image_url.replace("_normal", "");
+          }
 
-          if (tweetsWithUserInfo[i].hasOwnProperty("attachments")) {
+          //The below block of code was originally written to implement
+          //video and animated GIFs; Twitter API V2 does not currently provide the URL
+          //for videos or Animated GIFs
+          if (
+            tweetsWithUserInfo[i].hasOwnProperty("attachments") &&
+            tweetsWithUserInfo[i].attachments.hasOwnProperty("media_keys")
+          ) {
             tweetsWithUserInfo[i].attachments.media = {
               photos: [],
               videos: [],
@@ -150,6 +163,7 @@ app.get("/api/getTweets/:searchedText", (req, res) => {
             const mediaArray = includesObject.media;
             const mediaKeysArray = tweetsWithUserInfo[i].attachments.media_keys;
 
+            console.log(mediaKeysArray);
             mediaKeysArray.forEach((mediaKey) => {
               const index = mediaArray.findIndex((media) => {
                 if (mediaKey === media.media_key) return true;
@@ -169,51 +183,16 @@ app.get("/api/getTweets/:searchedText", (req, res) => {
                   tweetsWithUserInfo[i].attachments.media.animatedGIF.push(
                     mediaArray[index]
                   );
+                  break;
+                default:
+                  delete tweetsWithUserInfo[i].attachments.media;
               }
-
-              console.log(tweetsWithUserInfo[i].attachments.media);
             });
           }
         }
         res.send(tweetsWithUserInfo);
       }
     })
-    // const numberOfTweets = response.data.meta.result_count;
-
-    // if (numberOfTweets === 0) res.send({ status: 404 });
-    // else {
-    //   const includesObject = response.data.includes;
-    //   const tweetsArray = response.data.data;
-    //   let tweetsWithUserInfo = [];
-
-    //   for (let i = 0; i < tweetsArray.length; i++) {
-    //     tweetsWithUserInfo[i] = {
-    //       ...includesObject.users[i],
-    //       ...tweetsArray[i],
-    //     };
-
-    //     if (tweetsWithUserInfo[i].hasOwnProperty("profile_image_url")) {
-    //       tweetsWithUserInfo[i].profile_image_url = tweetsWithUserInfo[
-    //         i
-    //       ].profile_image_url.replace("_normal", "");
-    //     }
-
-    //     const timestamp = formatDateTimeGroup(
-    //       tweetsWithUserInfo[i].created_at
-    //     );
-    //     tweetsWithUserInfo[i].created_at = timestamp.toUTCString();
-
-    //     if (tweetsWithUserInfo[i].hasOwnProperty("attachments")) {
-    //       const mediaArray = includesObject.media;
-    //       const index = mediaArray.findIndex((media) => {
-    //         tweetsWithUserInfo[i].attachments.media_key === media.media_key;
-    //       });
-    //       tweetsWithUserInfo[i].media = media[index];
-    //     }
-    //   }
-    //   res.send(tweetsWithUserInfo);
-    //   }
-    // })
     .catch((error) => {
       console.log(error);
     });

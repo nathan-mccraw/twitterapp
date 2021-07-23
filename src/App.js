@@ -34,6 +34,7 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     history.push("/SearchResults/Tweets");
+
     axios
       .get(`/api/getUser/${searchedText}`)
       .then((response) => {
@@ -179,6 +180,7 @@ const App = () => {
               isViewingUser={isViewingUser}
               setIsViewingUser={setIsViewingUser}
               isFavorite={isFavorite}
+              history={history}
             />
           )}
         />
