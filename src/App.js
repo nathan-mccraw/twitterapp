@@ -26,9 +26,6 @@ const App = () => {
       const index = Math.floor(Math.random() * 5);
       getRandomTweet(response.data[index].author_id);
     });
-    // setTweetsReturned(testTweets);
-    // setFavoriteUsers(testFavorites);
-    // setUserReturned(testUser);
   }, []);
 
   const handleSubmit = (e) => {

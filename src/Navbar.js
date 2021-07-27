@@ -1,9 +1,7 @@
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Logo from "./pictures/Mockingjay.png";
 
 const Navbar = () => {
-  let history = useHistory();
-
   return (
     <nav className="navbar justify-content-start navbar-light bg-light p-2 pb-3 border-bottom border-info bg-white">
       <div className="navbar-nav">
