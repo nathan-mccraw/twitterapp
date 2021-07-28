@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 const { default: axios } = require("axios");
 const formatDateTime = require("../Utilities/formatDateTime");
-const token =
-  "AAAAAAAAAAAAAAAAAAAAAChVRgEAAAAAyXZ3VakgE7I5ycTefsVpoyGFug0%3DGfgQoVK9GyXe84B8CegSA0sCQ7XNTK6WlCfVsYiChiLYC3Tpc0";
+const getToken = require("../Utilities/GetToken");
 
-router.get("/:userID", (req, res) => {
+router.get("/:userID", async (req, res) => {
+  const token = await getToken();
   const id = req.params.userID;
   axios
     .get(

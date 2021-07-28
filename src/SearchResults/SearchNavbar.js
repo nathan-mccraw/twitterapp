@@ -46,7 +46,6 @@ const SearchNavbar = ({
             exact
             to="/SearchResults/Tweets"
             isActive={(match, location) => {
-              console.log(match);
               if (match) {
                 setIsViewingTweets(true);
                 setIsViewingUser(false);

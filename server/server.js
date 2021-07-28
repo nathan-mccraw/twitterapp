@@ -5,7 +5,9 @@ const userNameRoute = require("./Routes/userNameRoute");
 const userTimelineRoute = require("./Routes/userTimelineRoute");
 const tweetContentRoute = require("./Routes/tweetContentRoute");
 const defaultFavorites = require("./Routes/defaultFavorites");
-const port = 3000;
+
+require("dotenv").config();
+const port = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, "..", "build")));
 app.use(express.static("public"));

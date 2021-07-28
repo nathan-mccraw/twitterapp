@@ -1,7 +1,6 @@
 import noReturnIMG from "../pictures/NoReturn.jpg";
 
 const RandomTweet = ({ randomTweet }) => {
-  console.log(randomTweet);
   if (!randomTweet)
     return (
       <div className="text-center">
@@ -45,7 +44,11 @@ const RandomTweet = ({ randomTweet }) => {
             <div className="row justify-content-center">
               {randomTweet.attachments.media.photos.length &&
                 randomTweet.attachments.media.photos.map((media) => (
-                  <img src={media.url} className="mb-2 pb-2 border-bottom" />
+                  <img
+                    src={media.url}
+                    alt=""
+                    className="mb-2 pb-2 border-bottom"
+                  />
                 ))}
             </div>
           )}

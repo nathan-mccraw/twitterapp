@@ -1,8 +1,9 @@
 const { default: axios } = require("axios");
-const token =
-  "AAAAAAAAAAAAAAAAAAAAAChVRgEAAAAAyXZ3VakgE7I5ycTefsVpoyGFug0%3DGfgQoVK9GyXe84B8CegSA0sCQ7XNTK6WlCfVsYiChiLYC3Tpc0";
+const getToken = require("../Utilities/GetToken");
 
-const defaultFavorites = (req, res) => {
+const defaultFavorites = async (req, res) => {
+  const token = await getToken();
+
   axios
     .get(
       "https://api.twitter.com/2/users/by?usernames=spacex,virpilcontrols,eagledynamics,niglobal,ufc&user.fields=location,profile_image_url,public_metrics",

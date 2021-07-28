@@ -2,11 +2,11 @@ const express = require("express");
 const router = express.Router();
 const { default: axios } = require("axios");
 const formatDateTime = require("../Utilities/formatDateTime");
-const token =
-  "AAAAAAAAAAAAAAAAAAAAAChVRgEAAAAAyXZ3VakgE7I5ycTefsVpoyGFug0%3DGfgQoVK9GyXe84B8CegSA0sCQ7XNTK6WlCfVsYiChiLYC3Tpc0";
+const getToken = require("../Utilities/GetToken");
 
-router.get("/:searchedText", (req, res) => {
+router.get("/:searchedText", async (req, res) => {
   const searchedText = req.params.searchedText;
+  const token = await getToken();
   axios
     .get(
       `https://api.twitter.com/2/tweets/search/recent?query=${searchedText}&max_results=30&tweet.fields=attachments,author_id,created_at,public_metrics,entities&expansions=author_id,attachments.media_keys&media.fields=media_key,preview_image_url,url&user.fields=description,id,location,name,profile_image_url,username`,
@@ -52,7 +52,6 @@ router.get("/:searchedText", (req, res) => {
             const mediaArray = includesObject.media;
             const mediaKeysArray = tweetsWithUserInfo[i].attachments.media_keys;
 
-            console.log(mediaKeysArray);
             mediaKeysArray.forEach((mediaKey) => {
               const index = mediaArray.findIndex((media) => {
                 if (mediaKey === media.media_key) return true;

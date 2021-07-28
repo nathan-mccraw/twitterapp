@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const { default: axios } = require("axios");
-const token =
-  "AAAAAAAAAAAAAAAAAAAAAChVRgEAAAAAyXZ3VakgE7I5ycTefsVpoyGFug0%3DGfgQoVK9GyXe84B8CegSA0sCQ7XNTK6WlCfVsYiChiLYC3Tpc0";
+const getToken = require("../Utilities/GetToken");
 
-router.get("/:username", (req, res) => {
+router.get("/:username", async (req, res) => {
+  const token = await getToken();
   const user = req.params.username;
   axios
     .get(
