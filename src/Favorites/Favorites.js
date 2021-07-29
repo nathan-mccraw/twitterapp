@@ -3,8 +3,13 @@ import noReturnIMG from "../pictures/NoReturn.jpg";
 const Favorites = ({ favoriteUsers, showRandomTweetModal }) => {
   if (favoriteUsers.length === 0 || !favoriteUsers)
     return (
-      <div className="text-center">
-        <img src={noReturnIMG} alt="disconnected" style={{ width: "600px" }} />
+      <div className="container-fluid text-center">
+        <img
+          src={noReturnIMG}
+          alt="disconnected"
+          style={{ width: "300px" }}
+          className="mt-4"
+        />
       </div>
     );
 
@@ -13,7 +18,7 @@ const Favorites = ({ favoriteUsers, showRandomTweetModal }) => {
       <div className="row me-4">
         {favoriteUsers.map((user) => (
           <div
-            className="col-2 m-4 ps-0 pe-0 border border-info shadow rounded-3 getRandomTweets"
+            className="col-auto col-md-2 m-4 ps-0 pe-0 border border-info shadow rounded-3 getRandomTweets"
             onClick={() => {
               showRandomTweetModal(user);
             }}

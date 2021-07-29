@@ -9,24 +9,24 @@ const Tweets = ({ tweetsReturned, addFavorite, getUserTweets, isFavorite }) => {
     );
 
   return (
-    <div className="container offset-3">
+    <div className="container-fluid offset-md-3">
       {tweetsReturned.map((tweet) => (
         <div id="tweetObject" className="row" key={tweet.id}>
-          <div className="col-6 mb-4 p-0 ps-4 pe-3 border border-2 border-info shadow rounded-3">
+          <div className="col-md-6 col-auto mb-4 p-0 ps-4 pe-3 border border-2 border-info shadow rounded-3">
             <div id="tweetHeader" className="row mb-2 pb-2 border-bottom">
               <div
                 id="tweetProfileIMG"
-                className="d-flex align-items-center pt-3"
+                className="d-flex row align-items-center pt-3"
               >
-                <div className="col-auto me-2">
+                <div className="col-md-auto col-12 me-2">
                   <img
                     src={tweet.profile_image_url}
                     style={{ width: "100px" }}
-                    className="border border-primary p-1 rounded-circle shadow"
+                    className="col-md-auto col-12 border border-primary p-1 rounded-circle shadow"
                     alt="Profile"
                   />
                 </div>
-                <div className="col-auto">
+                <div className="col-md-auto col-12">
                   <div
                     className="row h3 ms-0 mb-0 me-2 text-info getTweets"
                     onClick={() => getUserTweets(tweet.author_id)}
@@ -36,7 +36,7 @@ const Tweets = ({ tweetsReturned, addFavorite, getUserTweets, isFavorite }) => {
                   <div className="row ms-0 ps-4">{tweet.name}</div>
                 </div>
                 {!isFavorite(tweet) ? (
-                  <div className="col-auto ms-auto">
+                  <div className="col-md-auto col-12 ms-auto">
                     <button
                       onClick={() => {
                         addFavorite(tweet);

@@ -15,8 +15,8 @@ const Users = ({
     );
 
   return (
-    <div className="container offset-3">
-      <div className="col-auto mb-4">
+    <div className="container offset-md-3">
+      <div className="col-fluid mb-4">
         <div className="row">
           <div className="col-auto border border-info border-2 rounded p-2 shadow">
             <div className="row p-2 mb-2 justify-content-between align-items-center">

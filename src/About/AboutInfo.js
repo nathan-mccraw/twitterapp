@@ -5,7 +5,7 @@ const AboutInfo = () => {
     <div className="clearfix">
       <img
         src={threeFinger}
-        className="col-md-4 float-md-end mb-3 ms-md-3"
+        className="col-4 d-none d-md-flex float-md-end mb-3 ms-md-3"
         alt="Depicted Search Input"
       />
       <p>

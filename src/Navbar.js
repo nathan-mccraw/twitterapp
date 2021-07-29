@@ -10,7 +10,7 @@ const Navbar = () => {
             src={Logo}
             alt="Logo"
             style={{ width: "70px" }}
-            className="p-0 m-0 me-2"
+            className="d-none d-md-flex p-0 m-0 me-2"
           />
           <NavLink
             className="nav-link"
@@ -25,7 +25,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-nav">
         <div className="navbar-item d-flex align-items-center">
-          <i className="bi bi-dot ms-4 me-4"></i>
+          <i className="bi bi-dot ms-md-4 me-md-4 me-2 ms-2"></i>
           <NavLink
             activeClassName="text-primary"
             className="nav-link"
@@ -39,7 +39,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-nav">
         <div className="navbar-item d-flex align-items-center">
-          <i className="bi bi-dot ms-4 me-4"></i>
+          <i className="bi bi-dot ms-md-4 me-md-4 ms-2 me-2"></i>
           <NavLink
             activeClassName="text-primary"
             className="nav-link"
@@ -53,7 +53,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-nav">
         <div className="navbar-item d-flex align-items-center">
-          <i className="bi bi-dot ms-4 me-4"></i>
+          <i className="bi bi-dot ms-md-4 me-md-4 ms-2 me-2"></i>
           <NavLink
             activeClassName="text-primary"
             className="nav-link"
@@ -61,7 +61,7 @@ const Navbar = () => {
             exact
             to="/AboutMockingJay"
           >
-            About <i className="bi bi-info-circle "></i>
+            About <i className="d-none d-md-inline bi bi-info-circle "></i>
           </NavLink>
         </div>
       </div>

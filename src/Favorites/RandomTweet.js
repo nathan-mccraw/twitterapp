@@ -12,7 +12,7 @@ const RandomTweet = ({ randomTweet }) => {
     <div className="container">
       <div
         id="tweetObject"
-        className="row justify-content-center ps-3 pe-3"
+        className="row d-flex d-md-inline justify-content-center ps-3 pe-3"
         key={randomTweet.id}
       >
         <div className="col-auto mb-4 p-0 ps-4 pe-3 border border-2 border-info shadow rounded-3">

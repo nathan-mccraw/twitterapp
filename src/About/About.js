@@ -14,9 +14,9 @@ const About = () => {
             <div className="clearfix">
               <img
                 src={Logo}
-                className="col-md-4 float-md-start me-4 mt-n1 ms-md-3"
+                className="col-md-4 d-none d-md-flex float-md-start m-4 mt-0 ms-3"
                 id="infoLogo"
-                alt="Mocking Jay Logo mb-4"
+                alt="Mocking Jay Logo"
               />
               <div className="container">
                 <div className="row justify-content-start">
@@ -25,13 +25,14 @@ const About = () => {
                       className="border-bottom pb-4 text-info"
                       style={{ fontFamily: "'Pacifico', cursive" }}
                     >
-                      MockingJay -- Twitter Proxy
+                      MockingJay{" "}
+                      <p className="d-none d-md-inline">-- Twitter Proxy</p>
                     </h1>
                   </div>
                   <div className="col-3">
                     <div className="container">
                       <NavLink
-                        className="nav-link active"
+                        className="nav-link pt-0"
                         aria-current="page"
                         activeClassName="activeLink"
                         exact
@@ -43,7 +44,7 @@ const About = () => {
                             style={{ fontSize: "2rem" }}
                           ></i>
                         </div>
-                        <div className="row text-center">
+                        <div className="row d-none d-md-flex text-center">
                           <h6>About Home</h6>
                         </div>
                       </NavLink>

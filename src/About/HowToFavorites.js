@@ -4,16 +4,16 @@ import SearchNavbar from "../pictures/SearchNavBar.jpg";
 const HowToFavorites = () => {
   return (
     <div className="clearfix">
-      <img
-        src={SearchNavbar}
-        className="col-md-4 float-md-end mb-3 ms-md-3"
-        alt="Depicted Search Input"
-      />
       <p>
         The "Favorites List" is located in two locations, in the left sidebar on
         the search page, and by navigating to the Favorites tab the main Navbar
         (top of the browser).
       </p>
+      <img
+        src={SearchNavbar}
+        className="col-md-4 col-12 float-md-end mb-3 ms-md-3"
+        alt="Depicted Search Input"
+      />
       <p>
         By default, the favorites list contains five Twitter users. If you wish
         to add a user to the favorites list, you need to search for the Twitter
@@ -30,7 +30,7 @@ const HowToFavorites = () => {
       </p>
       <img
         src={favoritesTab}
-        className="col-md-4 float-md-start mb-3 ms-md-3"
+        className="col-md-4 col-12 float-md-start mb-3 ms-md-3"
         alt="Depicted Search Input"
       />
       <p>

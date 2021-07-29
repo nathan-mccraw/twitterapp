@@ -25,7 +25,7 @@ const SearchResults = ({
   return (
     <div className="container-fluid pe-0 ps-0">
       <div className="row">
-        <div className="col-auto border-end">
+        <div className="col-auto d-none d-md-flex border-end">
           <FavoritesSideBar
             favoriteUsers={favoriteUsers}
             removeFavorite={removeFavorite}

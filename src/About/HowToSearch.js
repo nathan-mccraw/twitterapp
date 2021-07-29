@@ -5,11 +5,6 @@ import addFavorites from "../pictures/addFavorites.jpg";
 const HowToSearch = () => {
   return (
     <div className="clearfix">
-      <img
-        src={searchPicture}
-        className="col-md-4 float-md-end mt-2 ms-md-3"
-        alt="Depicted Search Input"
-      />
       <p>
         The search tab will display an input field that will search for a
         <b> USER NAME</b> and tweet content. Navigation between searching for
@@ -18,10 +13,9 @@ const HowToSearch = () => {
         main body of the web browser.
       </p>
       <img
-        src={favoritesList}
-        className="col-md-4 float-md-start me-1 ms-md-3"
+        src={searchPicture}
+        className="col-md-4 col-12 float-md-end mt-2 ms-md-3"
         alt="Depicted Search Input"
-        style={{ width: "10em" }}
       />
       <p>
         Clicking on a user in the favorites list located on the left side of the
@@ -31,6 +25,12 @@ const HowToSearch = () => {
         favorites list by clicking on the corresponding icon beside the user on
         the search results.
       </p>
+      <img
+        src={favoritesList}
+        className="col-md-4 col-12 float-md-start me-1 ms-md-3"
+        alt="Depicted Search Input"
+        style={{ width: "10em" }}
+      />
       <p>
         If you wish to return to these instructions, you may navigate to the
         root home page or by selectiong <i>About</i> in the navbar at the top of
@@ -38,7 +38,7 @@ const HowToSearch = () => {
       </p>
       <img
         src={addFavorites}
-        className="col-md-4 float-md-end mb-3 ms-md-3"
+        className="col-md-4 col-12 mx-auto d-block mb-3"
         alt="Depicted Search Input"
       />
     </div>
