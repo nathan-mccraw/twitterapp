@@ -1,6 +1,6 @@
 # "MockingJay" -- Twitter API App
 
-MockingJay allows users to search for tweets and Twitter users, see a Twitter user's timeline, add/remove a Twitter user to a "Favorites List", and display a random tweet from the "Favorites List". MockingJay has only obtained a 'read-only' developer account with Twitter, so no information can be passed/posted/sent to Twitter, only retrieved.
+MockingJay allows users to search for tweets and Twitter users, see a Twitter user's timeline, add/remove a Twitter user to a "Favorites List", and display a random tweet from the "Favorites List". MockingJay has only obtained a 'read-only' developer account with Twitter, so no information can be passed/posted/sent to Twitter, only retrieved.  MockingJay is a repsonsive website that is optimized for the desktop and the iPhone X.
 
 Use the MockingJay -- Twitter API App [here]().
 
@@ -49,12 +49,25 @@ Navigating to the favorites tab via the main navigational toolbar located at the
 
 The about/instructional page displays information about the application and how to use the application.  Please reference this page for any further questions regarding the use of this application as it contains three items of content: a broad overview of the application, how to use the search functionality, and how to use the favorite users functionality.
 
+## Installing MockingJay Locally
+1. Fork this repository: makes a copy of this repository and stores it to your repository.
+2. Clone the repository to your local machine using the command line: [Git Clone](https://git-scm.com/docs/git-clone)
+3. Run npm install using command line - Go to the root directory -- i.e. if you navigated to C:\Users\{YOUR ACCOUNT NAME}\Documents when you initiated the Git Clone, then navigate to C:\Users\{YOUR ACCOUNT NAME}\Documents\twitterApp -- and run "npm install" -- this installs all npm depencies for the client side of the application.  Once this is completed, navigate to C:\Users\{YOUR ACCOUNT NAME}\Documents\twitterApp\server using the commmand line and run "npm install".
+4. The application is fully installed on your local system, but still lacks needed authenication measures to access the twitter API.  If you have a twitter developer portal, retrieve your API Key and API Secret Key; if you do not have a twitter developer portal, then [apply for access](https://developer.twitter.com/en/apply-for-access).
+5. Create an .env file -- Navigate back to the root directory C:\Users\{YOUR ACCOUNT NAME}\Documents\twitterApp in the command line and type "code .", this will open the application in VS Code [VS Code installation required](https://code.visualstudio.com/). Create a new file: ".env" in the server folder. 
 
+![createENVfile](https://user-images.githubusercontent.com/84479635/127429466-2369df29-d388-4a33-913f-dc6d65b88ee6.JPG)
+
+6. Insert your API Key and API secret key in this .env file 
+
+![ENVfile](https://user-images.githubusercontent.com/84479635/127429719-e36ef441-4c55-41eb-8f97-9e124c7fd675.JPG)
+
+7. In the command line, navigate to the root directory of the application C:\Users\{YOUR ACCOUNT NAME}\Documents\twitterApp, and run "npm start".
 
 
 
 ## Summary of Build
-The MockingJay app implements HTML, React/JavaScript, CSS/Bootstrap, NodeJS, ExpressJS and is deployed on Heroku via Github.  The application utlizes the [twitter API Verision 2](https://developer.twitter.com/en/docs/twitter-api/early-access), which in early access and is not yet fully featured; most notable is the inability to embed video contained in  tweets. MockingJay has obtained a 'read-only' developer account and as such, no information can be posted or sent to Twitter accounts, only retrieved and viewed.  The Twitter API does not allow Cross-Origin Resource sharing; in order to resolve this, Mockingjay implements a client-side API written in ExpressJS.  The client-side API recieves a HTTP request from the client browser, forwards the request to Twitter, and recieves the HTTP response from the Twitter API.  The client side API manipulates the data structures it recieves and sends it to the client browser.  This minimizes information sent to the client browser to only what the browser needs to display and allows all data manipulation and handling to occur in the same time and space complexity to minimize computing time and memory space.  The client-side API sends the HTTP response to the client browser, where the client browser only has to pick and choose what data needs to be displayed at the desired location. 
+The MockingJay app implements HTML, React/JavaScript, CSS/Bootstrap, NodeJS, ExpressJS and is deployed on Heroku via Github.  The application utlizes the [twitter API Verision 2](https://developer.twitter.com/en/docs/twitter-api/early-access), which in early access and is not yet fully featured; most notable is the inability to embed video contained in  tweets. MockingJay has obtained a 'read-only' developer account and as such, no information can be posted or sent to Twitter accounts, only retrieved and viewed.  The Twitter API does not allow Cross-Origin Resource sharing; in order to resolve this, Mockingjay implements a client-side API written in ExpressJS.  The client-side API recieves a HTTP request from the client browser, forwards the request to Twitter, and recieves the HTTP response from the Twitter API.  The client side API manipulates the data structures it recieves and sends it to the client browser.  This minimizes information sent to the client browser to only what the browser needs to display and allows all data manipulation and handling to occur in the same time and space complexity to minimize computing time and memory space.  The client-side API sends the HTTP response to the client browser, where the client browser only has to pick and choose what data needs to be displayed at the desired location. Another important aspect of the client side API is for security purposes.  An environmental variable is stored in the client API, not visible to the client browser, that is used to authenicate the application to the twitter API.  The application posts an API access key to the twitter API and recieves an application specific authenication token which is used by the browser to retrieve the twitter data, all of which is not visible by the browser.
 
 #### Author
 Nathan McCraw -- Software Developer [LinkedIn](https://www.linkedin.com/in/nathan-mccraw-5291535b/) [Personal Website - In Production]
