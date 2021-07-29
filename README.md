@@ -1,6 +1,6 @@
 # "MockingJay" -- Twitter API App
 
-MockingJay allows users to search for tweets and Twitter users, see a Twitter user's timeline, add/remove a Twitter user to a "Favorites List", and display a random tweet from the "Favorites List". MockingJay has only obtained a 'read-only' developer account with Twitter, so no information can be passed/posted/sent to Twitter, only retrieved.  MockingJay is a repsonsive website that is optimized for the desktop and the iPhone X.
+MockingJay allows users to search for tweets and Twitter users, see a Twitter user's timeline, add/remove a Twitter user to a "Favorites List", and display a random tweet from the "Favorites List". MockingJay has only obtained a 'read-only' developer account with Twitter, so no information can be passed/posted/sent to Twitter, only retrieved.  MockingJay is a responsive website that is optimized for the desktop and the iPhone X.
 
 Use the MockingJay -- Twitter API App [here]().
 
