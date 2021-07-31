@@ -11,9 +11,6 @@ const port = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, "..", "build")));
 app.use(express.static("public"));
-app.listen(port, () =>
-  console.log(`App listening at http://localhost:${port}`)
-);
 
 app.use("/api/getUser", userNameRoute);
 app.use("/api/getUserTweets", userTimelineRoute);
@@ -22,3 +19,7 @@ app.use("/api/defaultFavoriteUsers", defaultFavorites);
 app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, "..", "build", "index.html"));
 });
+
+app.listen(port, () =>
+  console.log(`App listening at http://localhost:${port}`)
+);
