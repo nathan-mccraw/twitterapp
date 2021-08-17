@@ -1,12 +1,12 @@
 import noReturnIMG from "../pictures/NoReturn.jpg";
 
 const Tweets = ({ tweetsReturned, addFavorite, getUserTweets, isFavorite }) => {
-  if (!tweetsReturned)
-    return (
-      <div className="text-center">
-        <img src={noReturnIMG} alt="disconnected" style={{ width: "400px" }} />
-      </div>
-    );
+  // if (!tweetsReturned)
+  //   return (
+  //     <div className="text-center">
+  //       <img src={noReturnIMG} alt="disconnected" style={{ width: "400px" }} />
+  //     </div>
+  //   );
 
   return (
     <div className="container-fluid offset-md-3">
