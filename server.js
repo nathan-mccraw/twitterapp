@@ -9,7 +9,7 @@ const defaultFavorites = require("./Routes/defaultFavorites");
 require("dotenv").config();
 const port = process.env.PORT || 3000;
 
-app.use(express.static(path.join(__dirname, "..", "build")));
+app.use(express.static(path.join(__dirname, "client", "build")));
 app.use(express.static("public"));
 
 app.use("/api/getUser", userNameRoute);
@@ -17,7 +17,7 @@ app.use("/api/getUserTweets", userTimelineRoute);
 app.use("/api/getTweets", tweetContentRoute);
 app.use("/api/defaultFavoriteUsers", defaultFavorites);
 app.use((req, res, next) => {
-  res.sendFile(path.join(__dirname, "..", "build", "index.html"));
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 app.listen(port, () =>

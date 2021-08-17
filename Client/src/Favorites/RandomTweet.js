@@ -48,6 +48,7 @@ const RandomTweet = ({ randomTweet }) => {
                     src={media.url}
                     alt=""
                     className="mb-2 pb-2 border-bottom"
+                    key={media.media_key}
                   />
                 ))}
             </div>

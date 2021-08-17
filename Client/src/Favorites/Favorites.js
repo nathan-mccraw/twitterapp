@@ -22,6 +22,7 @@ const Favorites = ({ favoriteUsers, showRandomTweetModal }) => {
             onClick={() => {
               showRandomTweetModal(user);
             }}
+            key={user.id}
           >
             <div className="row justify-content-center m-3 mb-0 ps-1 pe-1">
               <img
