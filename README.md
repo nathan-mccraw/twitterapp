@@ -60,7 +60,7 @@ The about/instructional page displays information about the application and how 
 4. The application is fully installed on your local system, but still lacks needed authentication measures to access the twitter API. If you have a twitter developer portal, retrieve your API Key and API Secret Key; if you do not have a twitter developer portal, then [apply for access](https://developer.twitter.com/en/apply-for-access).
 5. Create an .env file -- Navigate back to the root directory C:\Users\{YOUR ACCOUNT NAME}\Documents\twitterApp in the command line and type "code .", this will open the application in VS Code [VS Code installation required](https://code.visualstudio.com/). Create a new file: ".env" in the root directory.
 
-![createENVfile](https://user-images.githubusercontent.com/84479635/127429466-2369df29-d388-4a33-913f-dc6d65b88ee6.JPG)
+![createENVfile](https://user-images.githubusercontent.com/84479635/129659252-7ec19513-ce43-44a5-81e9-43e610659782.JPG)
 
 6. Insert your API Key and API secret key in this .env file
 
