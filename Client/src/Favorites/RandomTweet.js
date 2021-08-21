@@ -1,4 +1,4 @@
-import noReturnIMG from "../pictures/NoReturn.jpg";
+const noReturnIMG = process.env.PUBLIC_URL + "/NoReturn.jpg";
 
 const RandomTweet = ({ randomTweet }) => {
   if (!randomTweet)

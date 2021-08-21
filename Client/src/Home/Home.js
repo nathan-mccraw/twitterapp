@@ -1,4 +1,4 @@
-import Logo from "../pictures/Mockingjay.png";
+const Logo = process.env.PUBLIC_URL + "/MockingJay.png";
 
 const Home = () => {
   return (

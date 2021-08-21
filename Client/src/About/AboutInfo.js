@@ -1,10 +1,10 @@
-import threeFinger from "../pictures/threeFinger.jpg";
+const threeFingerIMG = process.env.PUBLIC_URL + "/threeFinger.jpg";
 
 const AboutInfo = () => {
   return (
     <div className="clearfix">
       <img
-        src={threeFinger}
+        src={threeFingerIMG}
         className="col-4 d-none d-md-flex float-md-end mb-3 ms-md-3"
         alt="Depicted Search Input"
       />

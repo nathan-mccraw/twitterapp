@@ -1,5 +1,5 @@
-import favoritesTab from "../pictures/favoritesTab.JPG";
-import SearchNavbar from "../pictures/SearchNavBar.jpg";
+const favoritesTabPicture = process.env.PUBLIC_URL + "/favoritesTab.jpg";
+const SearchNavbarPicture = process.env.PUBLIC_URL + "/searchNavbar.jpg";
 
 const HowToFavorites = () => {
   return (
@@ -10,7 +10,7 @@ const HowToFavorites = () => {
         (top of the browser).
       </p>
       <img
-        src={SearchNavbar}
+        src={SearchNavbarPicture}
         className="col-md-4 col-12 float-md-end mb-3 ms-md-3"
         alt="Depicted Search Input"
       />
@@ -29,7 +29,7 @@ const HowToFavorites = () => {
         screen.
       </p>
       <img
-        src={favoritesTab}
+        src={favoritesTabPicture}
         className="col-md-4 col-12 float-md-start mb-3 ms-md-3"
         alt="Depicted Search Input"
       />

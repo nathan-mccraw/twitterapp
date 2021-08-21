@@ -1,11 +1,10 @@
-//import noReturnIMG from "../pictures/NoReturn.jpg";
-import img from "../pictures/NoReturn.jpg";
+const NoReturnIMG = process.env.PUBLIC_URL + "/NoReturn.jpg";
 
 const Tweets = ({ tweetsReturned, addFavorite, getUserTweets, isFavorite }) => {
   if (!tweetsReturned)
     return (
       <div className="text-center">
-        <img src={img} alt="disconnected" style={{ width: "400px" }} />
+        <img src={NoReturnIMG} alt="disconnected" style={{ width: "400px" }} />
       </div>
     );
 

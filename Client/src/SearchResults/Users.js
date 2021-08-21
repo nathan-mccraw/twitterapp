@@ -1,4 +1,4 @@
-import noReturnIMG from "../pictures/NoReturn.jpg";
+const noReturnIMG = process.env.PUBLIC_URL + "/NoReturn.jpg";
 
 const Users = ({
   userReturned,
@@ -7,12 +7,12 @@ const Users = ({
   isFavorite,
   history,
 }) => {
-  // if (!userReturned)
-  //   return (
-  //     <div className="text-center">
-  //       <img src={noReturnIMG} alt="disconnected" style={{ width: "400px" }} />
-  //     </div>
-  //   );
+  if (!userReturned)
+    return (
+      <div className="text-center">
+        <img src={noReturnIMG} alt="disconnected" style={{ width: "400px" }} />
+      </div>
+    );
 
   return (
     <div className="container offset-md-3">

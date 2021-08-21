@@ -1,6 +1,6 @@
-import searchPicture from "../pictures/SearchPicture.jpg";
-import favoritesList from "../pictures/favoritesList.JPG";
-import addFavorites from "../pictures/addFavorites.jpg";
+const searchPicture = process.env.PUBLIC_URL + "/SearchPicture.jpg";
+const favoritesListPicture = process.env.PUBLIC_URL + "/favoritesList.jpg";
+const addFavoritesPicture = process.env.PUBLIC_URL + "/addFavorites.jpg";
 
 const HowToSearch = () => {
   return (
@@ -26,7 +26,7 @@ const HowToSearch = () => {
         the search results.
       </p>
       <img
-        src={favoritesList}
+        src={favoritesListPicture}
         className="col-md-4 col-12 float-md-start me-1 ms-md-3"
         alt="Depicted Search Input"
         style={{ width: "10em" }}
@@ -37,7 +37,7 @@ const HowToSearch = () => {
         the screen.
       </p>
       <img
-        src={addFavorites}
+        src={addFavoritesPicture}
         className="col-md-4 col-12 mx-auto d-block mb-3"
         alt="Depicted Search Input"
       />

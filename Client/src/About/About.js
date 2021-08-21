@@ -1,9 +1,10 @@
 import HowToSearch from "./HowToSearch";
 import HowToFavorites from "./HowToFavorites";
 import AboutMockingJay from "./AboutInfo";
-import Logo from "../pictures/Mockingjay.png";
 import { Route, Switch } from "react-router";
 import { NavLink } from "react-router-dom";
+
+const Logo = process.env.PUBLIC_URL + "/Mockingjay.png";
 
 const About = () => {
   return (

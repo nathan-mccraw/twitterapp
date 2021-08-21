@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import Logo from "./pictures/Mockingjay.png";
+const Logo = process.env.PUBLIC_URL + "/Mockingjay.png";
 
 const Navbar = () => {
   return (

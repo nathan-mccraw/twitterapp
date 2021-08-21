@@ -13,7 +13,7 @@ code {
 }
 
 #banner {
-  background-image: url(./pictures/mountainbackground.jpg);
+  background-image: url(/mountainbackground.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: 44%;
