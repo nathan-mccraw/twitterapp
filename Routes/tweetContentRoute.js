@@ -48,6 +48,7 @@ router.get("/:searchedText", async (req, res) => {
               photos: [],
               videos: [],
               animatedGIF: [],
+              poll_ids: [],
             };
             const mediaArray = includesObject.media;
             const mediaKeysArray = tweetsWithUserInfo[i].attachments.media_keys;
@@ -72,6 +73,10 @@ router.get("/:searchedText", async (req, res) => {
                     mediaArray[index]
                   );
                   break;
+                case "poll_ids":
+                  tweetsWithUserInfo[i].attachments.media.poll_ids.push(
+                    mediaArray[index]
+                  );
                 default:
                   delete tweetsWithUserInfo[i].attachments.media;
               }

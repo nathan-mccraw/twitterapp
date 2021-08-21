@@ -72,6 +72,7 @@ router.get("/:userID", async (req, res) => {
             });
           }
         }
+        console.log(tweetsWithUserInfo);
         res.send(tweetsWithUserInfo);
       }
     })
