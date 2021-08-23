@@ -3,25 +3,83 @@ import FavoritesSideBar from "./FavoritesSidebar";
 import Tweets from "./Tweets";
 import SearchNavbar from "./SearchNavbar";
 import { Route, Switch } from "react-router";
+import { useHistory } from "react-router-dom";
 
-const SearchResults = ({
-  userReturned,
-  addFavorite,
-  removeFavorite,
-  favoriteUsers,
-  tweetsReturned,
-  getUserTweets,
-  showUserAndTweets,
-  searchedText,
-  setSearchedText,
-  handleSubmit,
-  isViewingTweets,
-  setIsViewingTweets,
-  isViewingUser,
-  setIsViewingUser,
-  isFavorite,
-  history,
-}) => {
+const SearchResults = ({favoriteUsers}) => {
+  const [searchedText, setSearchedText] = useState("");
+  const [userReturned, setUserReturned] = useState(null);
+  const [tweetsReturned, setTweetsReturned] = useState(null);
+
+  let history = useHistory();
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    history.push("/SearchResults/Tweets");
+  
+    axios
+      .get(`/api/getUser/${searchedText}`)
+      .then((response) => {
+        response.status !== 404
+          ? setUserReturned(response.data)
+          : setUserReturned("");
+      })
+      .catch((error) => {
+        console.log(error);
+        setUserReturned("");
+      });
+  
+    axios
+      .get(`/api/getTweets/${searchedText}`)
+      .then((response) => {
+        response.data.status === 404
+          ? setTweetsReturned("")
+          : setTweetsReturned(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+        setTweetsReturned("");
+      });
+  };
+  
+  const showUserAndTweets = (user) => {
+    getUserTweets(user.author_id);
+    setUserReturned(user);
+  };
+  
+  const getUserTweets = (userID) => {
+    axios
+      .get(`/api/getUserTweets/${userID}`)
+      .then((response) => {
+        response.data.status === 404
+          ? setTweetsReturned("")
+          : setTweetsReturned(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+        setTweetsReturned("");
+      });
+  };
+
+  const removeFavorite = (deleteUser) => {
+    const newFavoriteUsers = favoriteUsers.filter(
+      (user) => user.username !== deleteUser
+    );
+    setFavoriteUsers(newFavoriteUsers);
+  };
+
+  const addFavorite = (newFavorite) => {
+    favoriteUsers.length
+      ? setFavoriteUsers((usersArray) => [...usersArray, newFavorite])
+      : setFavoriteUsers([newFavorite]);
+  };
+
+  const isFavorite = (user) => {
+    if (isFavorite.length === 0) return false;
+    for (const fav of favoriteUsers) {
+      if (fav.author_id === user.author_id) return true;
+    }
+  };
+
   return (
     <div className="container-fluid pe-0 ps-0">
       <div className="row">
@@ -38,10 +96,6 @@ const SearchResults = ({
               searchedText={searchedText}
               setSearchedText={setSearchedText}
               handleSubmit={handleSubmit}
-              isViewingTweets={isViewingTweets}
-              setIsViewingTweets={setIsViewingTweets}
-              isViewingUser={isViewingUser}
-              setIsViewingUser={setIsViewingUser}
             />
           </div>
           <Switch>

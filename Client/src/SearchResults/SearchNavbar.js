@@ -3,12 +3,11 @@ import { NavLink } from "react-router-dom";
 const SearchNavbar = ({
   handleSubmit,
   setSearchedText,
-  searchedText,
-  isViewingTweets,
-  setIsViewingTweets,
-  isViewingUser,
-  setIsViewingUser,
+  searchedText
 }) => {
+  const [isViewingTweets, setIsViewingTweets] = useState(false);
+  const [isViewingUser, setIsViewingUser] = useState(false);
+
   return (
     <nav
       className="navbar navbar-expand-lg navbar-light border-bottom pt-1 pb-1"
