@@ -12,7 +12,7 @@ const App = () => {
   const [favoriteUsers, setFavoriteUsers] = useState([]);
   const [randomTweet, setRandomTweet] = useState("");
   const [isRandomTweetModalOpen, setIsRandomTweetModalOpen] = useState(false);
-  
+
   useEffect(() => {
     axios.get("/api/defaultFavoriteUsers").then((response) => {
       setFavoriteUsers(response.data);
@@ -88,6 +88,7 @@ const App = () => {
           render={() => (
             <SearchResults
               favoriteUsers={favoriteUsers}
+              setFavoriteUsers={setFavoriteUsers}
             />
           )}
         />

@@ -1,21 +1,23 @@
 import Users from "./Users";
+import { useState } from "react";
 import FavoritesSideBar from "./FavoritesSidebar";
 import Tweets from "./Tweets";
 import SearchNavbar from "./SearchNavbar";
 import { Route, Switch } from "react-router";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 
-const SearchResults = ({favoriteUsers}) => {
+const SearchResults = ({ favoriteUsers, setFavoriteUsers }) => {
   const [searchedText, setSearchedText] = useState("");
   const [userReturned, setUserReturned] = useState(null);
   const [tweetsReturned, setTweetsReturned] = useState(null);
 
   let history = useHistory();
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     history.push("/SearchResults/Tweets");
-  
+
     axios
       .get(`/api/getUser/${searchedText}`)
       .then((response) => {
@@ -27,7 +29,7 @@ const SearchResults = ({favoriteUsers}) => {
         console.log(error);
         setUserReturned("");
       });
-  
+
     axios
       .get(`/api/getTweets/${searchedText}`)
       .then((response) => {
@@ -40,12 +42,12 @@ const SearchResults = ({favoriteUsers}) => {
         setTweetsReturned("");
       });
   };
-  
+
   const showUserAndTweets = (user) => {
     getUserTweets(user.author_id);
     setUserReturned(user);
   };
-  
+
   const getUserTweets = (userID) => {
     axios
       .get(`/api/getUserTweets/${userID}`)

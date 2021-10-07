@@ -1,10 +1,7 @@
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 
-const SearchNavbar = ({
-  handleSubmit,
-  setSearchedText,
-  searchedText
-}) => {
+const SearchNavbar = ({ handleSubmit, setSearchedText, searchedText }) => {
   const [isViewingTweets, setIsViewingTweets] = useState(false);
   const [isViewingUser, setIsViewingUser] = useState(false);
 
