@@ -47,7 +47,7 @@ const App = () => {
   return (
     <div className="App">
       <Navbar />
-      <div className="position-fixed dflex justify-content-center align-items-center">
+      <div className="position-fixed justify-content-center align-items-center">
         <RandomTweetModal
           isRandomTweetModalOpen={isRandomTweetModalOpen}
           hideRandomTweetModal={hideRandomTweetModal}
